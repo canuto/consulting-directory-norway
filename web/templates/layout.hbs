@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory Site</title>
+  <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- Top Navigation Bar -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between h-16">
+        <!-- Logo/Title -->
+        <div class="flex items-center">
+          <!-- Mobile Sidebar Toggle -->
+          <button type="button" 
+                  onclick="document.getElementById('sidebar').classList.toggle('-translate-x-full');
+                          this.querySelector('svg').classList.toggle('rotate-90')"
+                  class="md:hidden mr-3 p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100">
+            <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <a href="/" class="flex items-center">
+            <!-- Actual logo image -->
+            <img src="https://placehold.co/30x30" alt="Logo" class="hidden md:block w-8 h-8 ml-2 rounded-full">
+            <span class="text-xl font-bold text-gray-800 pl-2">Directory Site</span>
+          </a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="hidden md:flex flex-1 justify-center px-6">
+          <div class="relative w-full max-w-xl flex items-center">
+            <input type="text" 
+                   class="w-full px-4 py-2 pr-12 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500"
+                   placeholder="Search...">
+            <button class="absolute right-0 p-2 hover:bg-gray-100 rounded-full">
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="flex items-center md:hidden">
+          <button type="button" 
+                  onclick="document.getElementById('mobile-menu').classList.toggle('hidden');
+                          document.getElementById('mobile-search').classList.toggle('hidden')"
+                  class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none" 
+                  aria-controls="mobile-menu" 
+                  aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Menu icon -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Desktop menu items -->
+        <div class="hidden md:flex md:items-center md:space-x-6">
+          <a href="/" class="text-gray-700 hover:text-gray-900">Home</a>
+          <a href="/about" class="text-gray-700 hover:text-gray-900">About</a>
+          <a href="/contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu items -->
+    <div class="hidden md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="/" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100">Home</a>
+        <a href="/about" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100">About</a>
+        <a href="/contact" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100">Contact</a>
+      </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div class="md:hidden px-4 pb-3 hidden" id="mobile-search">
+      <div class="relative">
+        <input type="text" 
+               class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500"
+               placeholder="Search...">
+        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 hover:bg-gray-100 rounded-full">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed md:static w-64 bg-gray-800 min-h-screen p-4 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out">
+      <h2 class="text-white text-xl font-bold mb-4">Categories</h2>
+      <nav>
+        {{#each categories}}
+        <a href="/category/{{slug}}" class="block text-gray-300 hover:text-white py-2">
+          {{name}}
+        </a>
+        {{/each}}
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1">
+      {{#block "main"}}
+      {{/block}}
+    </div>
+  </div>
+</body>
+</html>
