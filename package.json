@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    "clean": "coho dropcollection --collection 'listings'",
+    "setup": "npm run clean && coho createcollection --collection 'listings' && coho import -f bin/listings.json -c listings",
+    "buildindex": "coho query listings > bin/database-listings.json && node bin/buildindex.js && rm bin/database-listings.json",
     "css": "npx @tailwindcss/cli -i ./web/css/input.css -o ./web/css/output.css",
     "build": "npm run css",
     "deploy": "npm run build && codehooks deploy && codehooks logs --follow"
@@ -10,7 +13,8 @@
   "dependencies": {
     "codehooks-js": "^1.2.20",
     "handlebars": "^4.7.8",
-    "handlebars-layouts": "^3.1.4"
+    "handlebars-layouts": "^3.1.4",
+    "lunr": "^2.3.9"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",

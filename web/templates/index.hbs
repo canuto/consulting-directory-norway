@@ -1,18 +1,19 @@
 <!-- Main Content -->
 {{#extend "layout"}}
 {{#content "main"}}
-<main class="flex-1 p-8">
-  <h1 class="text-3xl font-bold mb-8">Directory Listings</h1>
+<main class="flex-1 p-8 bg-gray-800">
+  <h1 class="text-3xl font-bold mb-8 text-gray-300">Featured Listings</h1>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {{#each directories}}
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+    {{#each topFeatures}}
+    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700">
       <img src="{{imageUrl}}" alt="{{title}}" class="w-full h-48 object-cover">
       <div class="p-4">
-        <h2 class="text-xl font-bold mb-2">{{title}}</h2>
-        <p class="text-gray-600">{{description}}</p>
-        <a href="/directory/{{slug}}"
-          class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <h2 class="text-xl font-bold mb-2 text-gray-100">{{title}}</h2>
+        <p class="text-gray-400">{{this.category}}</p>
+        <p class="text-gray-400">{{this.content}}</p>
+        <a href="/listing/{{slug}}/{{_id}}"
+          class="mt-4 inline-block bg-gray-700 text-gray-300 px-4 py-2 rounded hover:bg-gray-600 hover:text-white transition-colors">
           View Details
         </a>
       </div>
