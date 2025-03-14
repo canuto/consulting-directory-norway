@@ -15,7 +15,8 @@
             { "label": "Type", "value": "NoSQL" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Real-time Sync, Authentication, Hosting" }
+            { "label": "Features", "value": "Real-time Sync, Authentication, Hosting" },
+            { "label": "Website", "value": "https://firebase.google.com" }
         ],
         "ingress": "Firebase is Google's comprehensive mobile and web application development platform. It provides a powerful NoSQL database with real-time synchronization capabilities, along with a suite of tools for authentication, hosting, and cloud functions. Perfect for developers looking to build scalable applications without managing infrastructure.",
         "topFeature": true,
@@ -37,7 +38,8 @@
             { "label": "Type", "value": "PostgreSQL" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Apache 2.0" },
-            { "label": "Features", "value": "Auth, Real-time, Edge Functions" }
+            { "label": "Features", "value": "Auth, Real-time, Edge Functions" },
+            { "label": "Website", "value": "https://supabase.com" }
         ],
         "ingress": "Supabase is an open source Firebase alternative that provides a powerful PostgreSQL database with real-time capabilities. It offers authentication, auto-generated APIs, and edge functions, all while maintaining full SQL compliance. Ideal for developers who want the convenience of Firebase with the power of PostgreSQL.",
         "topFeature": false,
@@ -59,7 +61,8 @@
             { "label": "Type", "value": "MySQL" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Database Branching, Scaling, Zero Downtime" }
+            { "label": "Features", "value": "Database Branching, Scaling, Zero Downtime" },
+            { "label": "Website", "value": "https://planetscale.com" }
         ],
         "ingress": "PlanetScale is a serverless MySQL database that allows you to scale your database without worrying about infrastructure. It offers database branching and zero downtime migrations, making it ideal for high-traffic applications.",    
         "topFeature": false,
@@ -81,7 +84,8 @@
             { "label": "Type", "value": "Distributed SQL" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "BSL" },
-            { "label": "Features", "value": "Horizontal Scaling, Survivability, Consistency" }
+            { "label": "Features", "value": "Horizontal Scaling, Survivability, Consistency" },
+            { "label": "Website", "value": "https://www.cockroachlabs.com" }
         ],
         "ingress": "CockroachDB is a distributed SQL database that offers horizontal scaling, survivability, and consistency. It's ideal for applications that require high availability and scalability.",
         "topFeature": false,
@@ -103,7 +107,8 @@
             { "label": "Type", "value": "Graph-Relational" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Business Source License" },
-            { "label": "Features", "value": "Graph Queries, Real-time, Multi-model" }
+            { "label": "Features", "value": "Graph Queries, Real-time, Multi-model" },
+            { "label": "Website", "value": "https://surrealdb.com" }
         ],
         "ingress": "SurrealDB is a graph-relational database that offers graph queries, real-time capabilities, and multi-model support. It's ideal for applications that require flexible data models and real-time updates.",
         "topFeature": false,
@@ -125,7 +130,8 @@
             { "label": "Type", "value": "Key-value Store" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "BSD" },
-            { "label": "Features", "value": "Caching, Pub/Sub, Data Structures" }
+            { "label": "Features", "value": "Caching, Pub/Sub, Data Structures" },
+            { "label": "Website", "value": "https://redis.io" }
         ],
         "ingress": "Redis is an in-memory key-value store that offers caching, pub/sub, and data structures. It's ideal for applications that require high performance and scalability.",
         "topFeature": true,
@@ -147,7 +153,8 @@
             { "label": "Type", "value": "Key-value Store" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "MIT" },
-            { "label": "Features", "value": "REST API, Simple Storage, Quick Setup" }
+            { "label": "Features", "value": "REST API, Simple Storage, Quick Setup" },
+            { "label": "Website", "value": "https://keylium.org" }
         ],
         "ingress": "Keylium is an effortless key-value storage solution with a built-in REST API. It's ideal for applications that require simple storage and quick setup.",
         "topFeature": false,
@@ -169,7 +176,8 @@
             { "label": "Type", "value": "Multi-model" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "GraphQL, FQL, Serverless" }
+            { "label": "Features", "value": "GraphQL, FQL, Serverless" },
+            { "label": "Website", "value": "https://fauna.com" }
         ],
         "ingress": "Fauna is a multi-model database that offers GraphQL, FQL, and serverless capabilities. It's ideal for applications that require flexible data models and real-time updates.",
         "topFeature": false,
@@ -191,7 +199,8 @@
             { "label": "Type", "value": "NoSQL" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Auto Scaling, Global Tables, Backup" }
+            { "label": "Features", "value": "Auto Scaling, Global Tables, Backup" },
+            { "label": "Website", "value": "https://aws.amazon.com/dynamodb/" }
         ],
         "ingress": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It offers auto scaling, global tables, and backup capabilities, making it ideal for applications that require high availability and scalability.",
         "topFeature": false,
@@ -213,7 +222,8 @@
             { "label": "Type", "value": "API Platform" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Testing, Monitoring, Documentation" }
+            { "label": "Features", "value": "Testing, Monitoring, Documentation" },
+            { "label": "Website", "value": "https://www.postman.com" }
         ],
         "ingress": "Postman is a popular API testing and development tool that offers a wide range of features for API testing, monitoring, and documentation. It's ideal for developers who need to test and monitor APIs.",
         "topFeature": false,
@@ -235,7 +245,8 @@
             { "label": "Type", "value": "API Documentation" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "Apache 2.0" },
-            { "label": "Features", "value": "Documentation, Testing, Code Generation" }
+            { "label": "Features", "value": "Documentation, Testing, Code Generation" },
+            { "label": "Website", "value": "https://swagger.io" }
         ],
         "ingress": "Swagger is a popular API documentation and design tool that offers a wide range of features for API documentation, testing, and code generation. It's ideal for developers who need to document and test APIs.",
         "topFeature": false,
@@ -257,7 +268,8 @@
             { "label": "Type", "value": "API Platform" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "MIT" },
-            { "label": "Features", "value": "Testing, Collections, PWA" }
+            { "label": "Features", "value": "Testing, Collections, PWA" },
+            { "label": "Website", "value": "https://hoppscotch.io" }
         ],
         "ingress": "Hoppscotch is a lightweight alternative to Postman that offers a wide range of features for API testing, monitoring, and documentation. It's ideal for developers who need to test and monitor APIs.",
         "topFeature": false,
@@ -279,7 +291,8 @@
             { "label": "Type", "value": "API Marketplace" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Marketplace, Testing, Analytics" }
+            { "label": "Features", "value": "Marketplace, Testing, Analytics" },
+            { "label": "Website", "value": "https://rapidapi.com" }
         ],
         "ingress": "RapidAPI is a popular API marketplace and management tool that offers a wide range of features for API testing, monitoring, and documentation. It's ideal for developers who need to test and monitor APIs.",
         "topFeature": false,
@@ -301,7 +314,8 @@
             { "label": "Type", "value": "API Gateway" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Security, Analytics, Monitoring" }
+            { "label": "Features", "value": "Security, Analytics, Monitoring" },
+            { "label": "Website", "value": "https://cloud.google.com/apigee" }
         ],
         "ingress": "Google Apigee is a popular API gateway with analytics and security. It's ideal for developers who need to secure and monitor APIs.",
         "topFeature": false,
@@ -323,7 +337,8 @@
             { "label": "Type", "value": "API Gateway" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "Apache 2.0" },
-            { "label": "Features", "value": "Gateway, Plugins, Service Mesh" }
+            { "label": "Features", "value": "Gateway, Plugins, Service Mesh" },
+            { "label": "Website", "value": "https://konghq.com" }
         ],
         "ingress": "Kong Gateway is a popular API gateway with a wide range of features for API testing, monitoring, and documentation. It's ideal for developers who need to test and monitor APIs.",
         "topFeature": false,
@@ -345,7 +360,8 @@
             { "label": "Type", "value": "API Gateway" },
             { "label": "Category", "value": "API Tools" },
             { "label": "License", "value": "Apache 2.0" },
-            { "label": "Features", "value": "High Performance, No Dependencies, Flexible" }
+            { "label": "Features", "value": "High Performance, No Dependencies, Flexible" },
+            { "label": "Website", "value": "https://www.krakend.io" }
         ],
         "ingress": "KrakenD is a high-performance API gateway with a wide range of features for API testing, monitoring, and documentation. It's ideal for developers who need to test and monitor APIs.",
         "topFeature": false,
@@ -367,7 +383,8 @@
             { "label": "Type", "value": "Serverless Platform" },
             { "label": "Category", "value": "Serverless" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Edge Functions, CDN, Analytics" }
+            { "label": "Features", "value": "Edge Functions, CDN, Analytics" },
+            { "label": "Website", "value": "https://vercel.com" }
         ],
         "ingress": "Vercel is a serverless platform that offers edge functions, CDN, and analytics. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": true,
@@ -389,7 +406,8 @@
             { "label": "Type", "value": "Serverless Functions" },
             { "label": "Category", "value": "Serverless" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Edge Functions, Background Functions" }
+            { "label": "Features", "value": "Edge Functions, Background Functions" },
+            { "label": "Website", "value": "https://www.netlify.com/products/functions/" }
         ],
         "ingress": "Netlify Functions is a serverless platform that offers edge functions, background functions, and analytics. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": false,
@@ -411,7 +429,8 @@
             { "label": "Type", "value": "Function as a Service" },
             { "label": "Category", "value": "Serverless" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Event-driven, Auto-scaling, Multi-runtime" }
+            { "label": "Features", "value": "Event-driven, Auto-scaling, Multi-runtime" },
+            { "label": "Website", "value": "https://aws.amazon.com/lambda/" }
         ],
         "ingress": "AWS Lambda is a serverless platform that offers event-driven, auto-scaling, and multi-runtime capabilities. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": false,
@@ -433,7 +452,8 @@
             { "label": "Type", "value": "Function as a Service" },
             { "label": "Category", "value": "Serverless" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Event Triggers, Multiple Runtimes" }
+            { "label": "Features", "value": "Event Triggers, Multiple Runtimes" },
+            { "label": "Website", "value": "https://cloud.google.com/functions" }
         ],
         "ingress": "Google Cloud Functions is a serverless platform that offers event-driven, auto-scaling, and multi-runtime capabilities. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": false,
@@ -455,7 +475,8 @@
             { "label": "Type", "value": "Edge Computing" },
             { "label": "Category", "value": "Serverless" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "Edge Network, V8 Isolates, KV Storage" }
+            { "label": "Features", "value": "Edge Network, V8 Isolates, KV Storage" },
+            { "label": "Website", "value": "https://workers.cloudflare.com" }
         ],
         "ingress": "Cloudflare Workers is a serverless platform that offers edge computing with serverless execution. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": false,
@@ -477,7 +498,8 @@
             { "label": "Type", "value": "Edge Functions" },
             { "label": "Category", "value": "Serverless" },
             { "label": "License", "value": "Apache 2.0" },
-            { "label": "Features", "value": "Deno Runtime, Database Integration" }
+            { "label": "Features", "value": "Deno Runtime, Database Integration" },
+            { "label": "Website", "value": "https://supabase.com/edge-functions" }
         ],
         "ingress": "Supabase Edge Functions is a serverless platform that offers edge functions with Deno runtime and database integration. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": false,
@@ -499,7 +521,8 @@
             { "label": "Type", "value": "NoSQL" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "REST API, Real-time, NoCode Interface" }
+            { "label": "Features", "value": "REST API, Real-time, NoCode Interface" },
+            { "label": "Website", "value": "https://restdb.io" }
         ],
         "ingress": "RestDB.io is a hosted database service with a built-in REST API and real-time features. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": false,
@@ -521,7 +544,8 @@
             { "label": "Type", "value": "Document Store" },
             { "label": "Category", "value": "Database Systems" },
             { "label": "License", "value": "Commercial" },
-            { "label": "Features", "value": "JavaScript Runtime, REST API, Authentication" }
+            { "label": "Features", "value": "JavaScript Runtime, REST API, Authentication" },
+            { "label": "Website", "value": "https://codehooks.io" }
         ],
         "ingress": "Codehooks.io is a hosted database service with a built-in REST API and real-time features. It's ideal for developers who need to deploy and monitor serverless functions.",
         "topFeature": true,

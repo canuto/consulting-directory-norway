@@ -5,7 +5,9 @@
             <img src="{{listing.imageUrl}}" alt="{{listing.title}}" class="h-30 object-cover rounded-lg shadow-lg">
             
             <div class="mt-8">
-                <h1 class="text-4xl font-bold mb-4 text-gray-100">{{listing.title}}</h1>
+                <h1 class="text-4xl font-bold mb-4 text-gray-100">
+                    <a href="{{listing.siteUrl}}" class="hover:underline">{{listing.title}}</a>
+                </h1>
                 <div class="text-xl text-gray-300 mb-6">
                     {{{listing.content}}}
                 </div>

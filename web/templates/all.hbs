@@ -1,0 +1,35 @@
+{{#extend "layout"}}
+{{#content "main"}}
+<main class="flex-1 p-8 bg-gray-800">
+    <h1 class="text-3xl font-bold mb-8 text-gray-100">All Categories</h1>
+    <p class="text-gray-400 mb-6">Browse all available categories</p>
+    
+    {{#each allCategories as |listings category|}}
+    <div class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-gray-100">{{category}}</h2>
+        <div class="flex flex-col gap-4">
+            {{#each listings}}
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg overflow-hidden border border-gray-700 flex">
+                {{#if imageUrl}}
+                <img src="{{imageUrl}}" alt="{{title}}" class="w-42 h-42 object-cover">
+                {{else}}
+                <div class="w-64 h-64 bg-gray-700 flex items-center justify-center">
+                    <span class="text-gray-400">No image</span>
+                </div>
+                {{/if}}
+                <div class="p-4 flex-1">
+                    <h3 class="text-xl font-bold mb-2 text-gray-100">{{title}}</h3>
+                    <p class="text-gray-400">{{this.content}}</p>
+                    <a href="/listing/{{slug}}/{{_id}}"
+                        class="mt-4 inline-block bg-gray-700 text-gray-100 px-4 py-2 rounded hover:bg-gray-600 transition-colors duration-200">
+                        View Details
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</main>
+{{/content}}
+{{/extend}}
