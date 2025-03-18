@@ -1,6 +1,6 @@
 /*
 * Codehooks (c) example
-* A simple web site
+* A directory web site with dynamic content
 */
 import {app, Datastore, aggregation} from 'codehooks-js'
 import handlebars from 'handlebars';
@@ -30,14 +30,9 @@ handlebars.registerHelper(layouts(handlebars));
 handlebars.registerPartial('layout', layout);
 
 
-app.auth(/^\/(index|category|account|contact|about\/.*)?$/, (req, res, next) => { next() });
+app.auth(/^\/(index|category|account|contact|about\/.*)?$/, (req, res, next) => next());
 
 const rand = () => Math.random();
-
-// Helper function to filter data based on category
-const filterByCategory = (items, category) => {
-    return items.filter(item => item.category === category);
-};
 
 // Add new helper function to filter featured items
 const loadTopFeatures = async () => {
@@ -54,7 +49,7 @@ const loadCategoryFeatures = async (categorySlug) => {
     const db = await Datastore.open();
     const cursor = db.getMany('listings', 
         {
-            categoryFeature: true,
+            //categoryFeature: true,
             categorySlug: categorySlug
         }
     );
@@ -69,6 +64,7 @@ const loadListingById = async (id) => {
     return listing;
 };
 
+// load directories
 const loadDirectories = async () => {
     const db = await Datastore.open();
     const cursor = db.getMany('listings', 
@@ -82,20 +78,26 @@ const loadDirectories = async () => {
         }
     );
     const directories = {};
-    let totalCount = 0;  // Add counter variable
+    let totalCount = 0;
     await cursor.forEach((item) => {
         if (!directories[item.categorySlug]) {
             directories[item.categorySlug] = {name: item.category, count: 0, categorySlug: item.categorySlug};
         }
         directories[item.categorySlug].name = item.category;
         directories[item.categorySlug].count++;
-        totalCount++;  // Increment total count
+        totalCount++;
     })
-    // insert a new item for all categories with the total count
     directories['all'] = {name: 'All categories', count: totalCount, categorySlug: 'all'};
-    return Object.values(directories).sort((a, b) => b.count - a.count);
+    
+    // Sort alphabetically by category name, but keep 'All categories' at the top
+    return Object.values(directories).sort((a, b) => {
+        if (a.categorySlug === 'all') return -1;
+        if (b.categorySlug === 'all') return 1;
+        return a.name.localeCompare(b.name);
+    });
 };
 
+// load all categories
 const loadAllCategories = async () => {
     const db = await Datastore.open();    
     const result = await db.getMany('listings', {}).toArray();
@@ -117,12 +119,14 @@ app.get('/', async (req, res) => {
     res.send(templates.index({directories, topFeatures, rand: rand()}));
 });
 
+// load all categories
 app.get('/category/all', async (req, res) => {
     const directories = await loadDirectories();
     const allCategories = await loadAllCategories();
     res.send(templates.all({directories, allCategories, rand: rand()}));
 });
 
+// load category by slug
 app.get('/category/:slug', async (req, res) => {
     const {slug} = req.params;
     const directories = await loadDirectories();
@@ -130,6 +134,7 @@ app.get('/category/:slug', async (req, res) => {
     res.send(templates.category({directories, categoryFeatures, category: slug, rand: rand()}));
 });
 
+// load listing by slug and id
 app.get('/listing/:slug/:id', async (req, res) => {
     const {slug, id} = req.params;
     const directories = await loadDirectories();
@@ -137,24 +142,28 @@ app.get('/listing/:slug/:id', async (req, res) => {
     res.send(templates.listing({listing, directories, rand: rand()}));
 });
 
+// load account
 app.get('/account', async (req, res) => {
     console.log('account');
     const directories = await loadDirectories();
     res.send(templates.account({directories, rand: rand()}));
 });
 
+// load contact
 app.get('/contact', async (req, res) => {
     console.log('contact');
     const directories = await loadDirectories();
     res.send(templates.contact({directories, rand: rand()}));
 });
 
+// load about
 app.get('/about', async (req, res) => {
     console.log('about');
     const directories = await loadDirectories();
     res.send(templates.about({directories, rand: rand()}));
 });
 
+// load static files (client cache)
 app.static({route: "/", directory: "/web", notFound: "/404.html"}, (_, res, next) => {
     console.log('If you see this, the client cache is invalidated or called for the first time');
     const ONE_HOUR =  1000*60*60;
