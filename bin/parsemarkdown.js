@@ -109,6 +109,8 @@ function parseMarkdownToListings(markdownContent) {
             };
             // don't add empty categories
             if (listing.category.length > 0) {
+                const features = detectFeatures(content);
+                listing.features = features;
                 listings.push(listing);
             }
             
@@ -140,18 +142,64 @@ function inferLicense(content) {
 }
 
 function inferFeatures(content) {
-    const features = [];
+    let features = [];
     const text = content.toLowerCase();
+    features = detectFeatures(text);
     
-    if (text.includes('real-time') || text.includes('realtime')) features.push('Real-time');
-    if (text.includes('sync')) features.push('Sync');
-    if (text.includes('auth')) features.push('Authentication');
-    if (text.includes('host')) features.push('Hosting');
-    if (text.includes('scale')) features.push('Scaling');
-    if (text.includes('backup')) features.push('Backup');
-    if (text.includes('monitor')) features.push('Monitoring');
-    
-    return features.length ? features.join(', ') : 'Basic Database Features';
+    return features.length ? features.join(', ') : 'Unknown';
+}
+
+const featureDetection = {
+    // Backend Features
+    'Backend': {
+        keywords: ['backend', 'server', 'api'],
+        subFeatures: {
+            'Database': ['database', 'sql', 'nosql', 'mongodb', 'postgresql'],
+            'Serverless': ['serverless', 'faas', 'lambda'],
+            'API': ['rest', 'graphql', 'api gateway'],
+            'Real-time': ['real-time', 'realtime', 'websocket', 'socket.io']
+        }
+    },
+    // DevOps Features
+    'DevOps': {
+        keywords: ['devops', 'ci/cd', 'pipeline'],
+        subFeatures: {
+            'Hosting': ['hosting', 'deploy', 'container'],
+            'Monitoring': ['monitor', 'logging', 'analytics', 'apm'],
+            'Security': ['security', 'auth', 'authentication', 'encryption'],
+            'Scaling': ['scale', 'load balancer', 'auto-scale']
+        }
+    },
+    // Storage Features
+    'Storage': {
+        keywords: ['storage', 'cdn', 'file'],
+        subFeatures: {
+            'CDN': ['cdn', 'content delivery'],
+            'Object Storage': ['object storage', 's3', 'blob'],
+            'Backup': ['backup', 'snapshot', 'redundancy']
+        }
+    }
+};
+
+function detectFeatures(text) {
+    const detectedFeatures = new Set();
+    const textLower = text.toLowerCase();
+
+    for (const [category, config] of Object.entries(featureDetection)) {
+        // Check main category keywords
+        if (config.keywords.some(keyword => textLower.includes(keyword))) {
+            detectedFeatures.add(category);
+        }
+
+        // Check subfeatures
+        for (const [subFeature, keywords] of Object.entries(config.subFeatures)) {
+            if (keywords.some(keyword => textLower.includes(keyword))) {
+                detectedFeatures.add(subFeature);
+            }
+        }
+    }
+
+    return Array.from(detectedFeatures);
 }
 
 // Check if input file is provided as command line argument

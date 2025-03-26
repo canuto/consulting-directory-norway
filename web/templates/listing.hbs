@@ -1,25 +1,35 @@
 {{#extend "layout"}}
 {{#content "main"}}
-    <main class="flex-1 p-8 bg-gray-800">
-        <div class="max-w-4xl mx-auto">
-            <img src="{{listing.imageUrl}}" alt="{{listing.title}}" class="h-30 object-cover rounded-lg shadow-lg">
-            
-            <div class="mt-8">
-                <h1 class="text-4xl font-bold mb-4 text-gray-100">
-                    <a href="{{listing.siteUrl}}" class="hover:underline">{{listing.title}}</a>
-                </h1>
-                <div class="text-xl text-gray-300 mb-6">
-                    {{{listing.content}}}
-                </div>
-                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-6 border border-gray-700">
-                    
-                    <div class="border-gray-700">
-                        <h2 class="text-2xl font-bold mb-4 text-gray-100">Details</h2>
-                        <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="hero bg-base-200 min-h-[50vh] items-start pt-8">
+    <div class="hero-content text-center">
+        <div class="max-w-[800px] mx-auto">
+            <h1 class="text-5xl font-bold">{{listing.title}}</h1>
+            <div class="card bg-base-100 w-full lg:max-w-[740px] lg:mx-0 mt-4">
+                <figure class="px-4 pt-4">
+                    <img src="https://placehold.co/96x96" alt="{{listing.title}}">
+                    <!-- <img src="{{listing.imageUrl}}" alt="{{listing.title}}" class="rounded-xl w-full"> -->
+                </figure>
+
+                <div class="card-body text-left">                    
+
+                    <div class="prose max-w-none">
+                        {{{listing.content}}}
+                    </div>
+
+                    <div class="mt-6">
+                        <h2 class="text-xl font-semibold mb-4">Details</h2>
+                        <dl class="grid gap-4">
                             {{#each listing.details}}
-                            <div>
-                                <dt class="font-semibold text-gray-400">{{label}}</dt>
-                                <dd class="text-gray-100">{{value}}</dd>
+                            <div class="grid grid-cols-2">
+                                <dt class="font-medium">{{label}}</dt>
+                                <dd>
+                                    {{#if (eq label "Website")}}
+                                    <a href="{{value}}" class="link link-primary" target="_blank"
+                                        rel="noopener noreferrer">{{value}}</a>
+                                    {{else}}
+                                    {{value}}
+                                    {{/if}}
+                                </dd>
                             </div>
                             {{/each}}
                         </dl>
@@ -27,6 +37,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</div>
 {{/content}}
 {{/extend}}

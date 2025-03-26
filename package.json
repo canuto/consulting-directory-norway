@@ -6,20 +6,22 @@
     "clean": "coho dropcollection --collection 'listings'",
     "setup": "npm run clean && coho createcollection --collection 'listings' && coho import -f bin/output.json -c listings",
     "buildindex": "coho query listings > bin/database-listings.json && node bin/buildindex.js",
-    "css": "npx @tailwindcss/cli -i ./web/css/input.css -o ./web/css/output.css",
+    "css": "npx @tailwindcss/cli -i ./web/css/input.css -o ./web/css/mystyles.css",
     "build": "npm run css && npm run buildindex",
-    "bundle": "esbuild ./clientscript.js --bundle --outfile=./web/js/bundle.js",
-    "deploy": "npm run build && npm run bundle && codehooks deploy && codehooks logs --follow"
+    "bundle": "esbuild ./clientscript.js --bundle --minify --outfile=./web/js/mybundle.js",
+    "deploy": "npm run build && npm run bundle && codehooks deploy -d && codehooks logs --follow"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.14",
     "codehooks-js": "^1.2.20",
+    "daisyui": "^5.0.6",
     "handlebars": "^4.7.8",
     "handlebars-layouts": "^3.1.4",
     "lunr": "^2.3.9"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/typography": "^0.5.16",
     "esbuild": "^0.25.1",
-    "tailwindcss": "^4.0.9"
+    "tailwindcss": "^4.0.14"
   }
 }

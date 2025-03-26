@@ -1,24 +1,25 @@
-<!-- Main Content -->
 {{#extend "layout"}}
 {{#content "main"}}
-<main class="flex-1 p-8 bg-gray-800">
-    <h1 class="text-3xl font-bold mb-8 text-gray-100">Category: {{category}}</h1>
-    <p class="text-gray-400 mb-6">Category Description</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {{#each categoryFeatures}}
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg overflow-hidden border border-gray-700">
-            <img src="{{imageUrl}}" alt="{{title}}" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2 text-gray-100">{{this.title}}</h2>
-                <p class="text-gray-400">{{this.content}}</p>
-                <a href="/listing/{{slug}}/{{_id}}"
-                    class="mt-4 inline-block bg-gray-700 text-gray-100 px-4 py-2 rounded hover:bg-gray-600 transition-colors duration-200">
-                    View Details
+    <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+            <h1 class="card-title text-2xl mb-4">{{category}} <div class="badge badge-info">{{categoryFeatures.length}} listings</div></h1>
+            
+            <div class="flex flex-col gap-4">
+                {{#each categoryFeatures}}
+                <a href="/listing/{{slug}}/{{_id}}" class="flex items-center gap-4 p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors cursor-pointer">
+                    <div class="avatar">
+                        <div class="w-16 h-16 rounded">
+                            <img src="{{imageUrl}}" alt="{{title}}" />
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-lg font-semibold">{{this.title}}</h2>
+                        <p class="text-sm opacity-70">{{this.content}}</p>
+                    </div>
                 </a>
+                {{/each}}
             </div>
         </div>
-        {{/each}}
     </div>
-</main>
 {{/content}}
 {{/extend}}
