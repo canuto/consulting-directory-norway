@@ -2,7 +2,7 @@ const lunr = require('lunr'),
     fs = require('fs');
 
 // Read and parse the JSON file
-const documents = JSON.parse(fs.readFileSync('bin/database-listings.json', 'utf8'))
+const documents = JSON.parse(fs.readFileSync('build/database-listings.json', 'utf8'))
 const showHitsData = {}
 
 const idx = lunr(function () {
@@ -38,6 +38,7 @@ const idx = lunr(function () {
             siteUrl: doc.siteUrl,
             content: doc.content,
             category: doc.category,
+            categorySlug: doc.categorySlug,
             slug: doc.slug            
         }
     }, this)

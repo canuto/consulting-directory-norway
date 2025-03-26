@@ -19,11 +19,8 @@
       <div class="container mx-auto px-4">
         <div class="navbar">
           <div class="navbar-start">
-            <a class="btn text-xl" href="/">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-                stroke="currentColor" class="w-6 h-6 mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6" />
-              </svg>
+            <a class="btn text-xl" href="/">            
+              <span class="lg:hidden">/</span>
               <span class="hidden lg:inline">Backend tools</span>
             </a>
           </div>
@@ -66,7 +63,7 @@
             <ul>
               {{#each directories}}
               <li>
-                  <a href="/category/{{categorySlug}}">{{name}} <div class="badge badge-sm">{{count}}</div></a>
+                  <a href="/{{categorySlug}}">{{name}} <div class="badge badge-sm">{{count}}</div></a>
               </li>
               {{/each}}
             </ul>

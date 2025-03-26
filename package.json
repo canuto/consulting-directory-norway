@@ -4,8 +4,10 @@
   "main": "server.js",
   "scripts": {
     "clean": "coho dropcollection --collection 'listings'",
-    "setup": "npm run clean && coho createcollection --collection 'listings' && coho import -f bin/output.json -c listings",
-    "buildindex": "coho query listings > bin/database-listings.json && node bin/buildindex.js",
+    "mock": "npm run clean && coho createcollection --collection 'listings' && coho import -f bin/testdata-listings.json -c listings",
+    "setup": "npm run clean && coho createcollection --collection 'listings' && coho import -f build/output.json -c listings",
+    "buildsitemap": "node bin/buildsitemap.js",
+    "buildindex": "coho query listings > build/database-listings.json && node bin/buildindex.js",
     "css": "npx @tailwindcss/cli -i ./web/css/input.css -o ./web/css/mystyles.css",
     "build": "npm run css && npm run buildindex",
     "bundle": "esbuild ./clientscript.js --bundle --minify --outfile=./web/js/mybundle.js",

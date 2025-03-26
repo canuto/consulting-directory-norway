@@ -6,7 +6,7 @@
             
             <div class="flex flex-col gap-4">
                 {{#each categoryFeatures}}
-                <a href="/listing/{{slug}}/{{_id}}" class="flex items-center gap-4 p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors cursor-pointer">
+                <a href="/{{categorySlug}}/{{slug}}/{{_id}}" class="flex items-center gap-4 p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors cursor-pointer">
                     <div class="avatar">
                         <div class="w-16 h-16 rounded">
                             <img src="{{imageUrl}}" alt="{{title}}" />

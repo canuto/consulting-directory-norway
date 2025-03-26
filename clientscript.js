@@ -26,7 +26,7 @@ window.handleSearch = function(query) {
             searchResults.innerHTML = displayedResults
                 .map(result => `
                     <li>
-                        <a href="/listing/${showHitsData[result.ref].slug}/${result.ref}" class="p-4 hover:bg-base-300">
+                        <a href="/${showHitsData[result.ref].categorySlug}/${showHitsData[result.ref].slug}/${result.ref}" class="p-4 hover:bg-base-300">
                             <div class="text-sm opacity-70 align-top"><b>${showHitsData[result.ref].title}</b><br>${showHitsData[result.ref].content}</div>
                         </a>
                     </li>

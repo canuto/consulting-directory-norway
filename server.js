@@ -65,34 +65,44 @@ app.get('/', async (req, res) => {
     res.send(await renderPage('index', {directories, topFeatures}));
 });
 
-// load all categories
-app.get('/category/all', async (req, res) => {
-    const directories = await loadDirectoriesCached();
-    const allCategories = await loadAllCategoriesCached();
-    res.send(await renderPage('all', {directories, allCategories}));
-});
-
-// load category by slug
-app.get('/category/:slug', async (req, res) => {
-    const {slug} = req.params;
-    const directories = await loadDirectoriesCached();
-    const categoryFeatures = await loadCategoryFeaturesCached(slug);    
-    res.send(await renderPage('category', {directories, categoryFeatures, category: slug}));
-});
-
-// load listing by slug and id
-app.get('/listing/:slug/:id', async (req, res) => {
-    const {slug, id} = req.params;
-    const directories = await loadDirectoriesCached();
-    const listing = await loadListingByIdCached(id);
-    res.send(await renderPage('listing', {listing, directories}));
-});
-
-// load account
-app.get('/account', async (req, res) => {
-    console.log('account');
-    const directories = await loadDirectoriesCached();
-    res.send(await renderPage('account', {directories}));
+// Generate sitemap.xml
+app.get('/sitemap.xml', async (req, res) => {
+    const db = await Datastore.open();
+    const sitename = `https://${req.headers.host}`;
+    const listings = db.getMany('listings');
+    
+    res.setHeader('Content-Type', 'application/xml');
+    
+    res.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+    res.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+    
+    // Add root URL
+    res.write(`  <url>
+    <loc>${sitename}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    </url>\n`);
+    
+    // Add all categories page
+    res.write(`  <url>
+    <loc>${sitename}/category/all</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    </url>\n`);
+    
+    
+    // Add all directory entries
+    await listings.forEach((listing) => {
+        res.write(`  <url>
+    <loc>${sitename}/${listing.categorySlug}/${listing.slug}/${listing._id}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`);
+    });
+    
+    res.write('</urlset>');
+    
+    res.end();
 });
 
 // load contact
@@ -108,6 +118,38 @@ app.get('/about', async (req, res) => {
     const directories = await loadDirectoriesCached();
     res.send(await renderPage('about', {directories}));
 });
+
+// load all categories
+app.get('/all', async (req, res) => {
+    const directories = await loadDirectoriesCached();
+    const allCategories = await loadAllCategoriesCached();
+    res.send(await renderPage('all', {directories, allCategories}));
+});
+
+// load category by slug
+app.get('/:slug', async (req, res) => {
+    const {slug} = req.params;
+    const directories = await loadDirectoriesCached();
+    const categoryFeatures = await loadCategoryFeaturesCached(slug);    
+    res.send(await renderPage('category', {directories, categoryFeatures, category: slug}));
+});
+
+// load listing by slug and id
+app.get('/:categorySlug/:slug/:id', async (req, res) => {
+    const {categorySlug, slug, id} = req.params;
+    const directories = await loadDirectoriesCached();
+    const listing = await loadListingByIdCached(id);
+    res.send(await renderPage('listing', {listing, directories}));
+});
+
+// load account
+app.get('/account', async (req, res) => {
+    console.log('account');
+    const directories = await loadDirectoriesCached();
+    res.send(await renderPage('account', {directories}));
+});
+
+
 
 // load static files (client cache)
 app.static({route: "/", directory: "/web", notFound: "/404.html"}/*, (_, res, next) => {
