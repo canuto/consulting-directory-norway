@@ -20,40 +20,16 @@ coho init --empty
 ```
 
 ## Setup with Mock Data
-
-1. Initialize Codehooks.io backend:
 ```bash
-npx codehooks init
-```
-
-2. Create sample data using the provided seed script:
-```bash
-npm run seed
-# or
-yarn seed
-```
-
-3. Start the development server:
-```bash
-npm run dev
-# or
-yarn dev
+npm run mock
 ```
 
 ## Deployment
 
 1. Deploy the backend to Codehooks.io:
 ```bash
-npx codehooks deploy
+npm run deploy
 ```
-
-2. Deploy the frontend to Vercel:
-```bash
-npm run build
-vercel deploy
-```
-
-Or connect your GitHub repository to Vercel for automatic deployments.
 
 ## UI Customization
 
@@ -82,7 +58,7 @@ module.exports = {
 }
 ```
 
-2. Apply themes using the `data-theme` attribute:
+2. Apply themes using the `data-theme` attribute in `web/templates/layout.hbs`:
 ```html
 <html data-theme="mytheme">
 ```
