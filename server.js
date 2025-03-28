@@ -18,7 +18,8 @@ import {
     loadTopFeaturesCached, 
     loadAllCategoriesCached, 
     loadCategoryFeaturesCached,
-    loadListingByIdCached 
+    loadListingByIdCached,
+    writeSitemapToResponse
 } from './helpers.js';
 
 const templates = {
@@ -67,42 +68,7 @@ app.get('/', async (req, res) => {
 
 // Generate sitemap.xml
 app.get('/sitemap.xml', async (req, res) => {
-    const db = await Datastore.open();
-    const sitename = `https://${req.headers.host}`;
-    const listings = db.getMany('listings');
-    
-    res.setHeader('Content-Type', 'application/xml');
-    
-    res.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-    res.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-    
-    // Add root URL
-    res.write(`  <url>
-    <loc>${sitename}/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    </url>\n`);
-    
-    // Add all categories page
-    res.write(`  <url>
-    <loc>${sitename}/category/all</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    </url>\n`);
-    
-    
-    // Add all directory entries
-    await listings.forEach((listing) => {
-        res.write(`  <url>
-    <loc>${sitename}/${listing.categorySlug}/${listing.slug}/${listing._id}</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>\n`);
-    });
-    
-    res.write('</urlset>');
-    
-    res.end();
+    await writeSitemapToResponse(res, req.headers.host);
 });
 
 // load contact
@@ -139,7 +105,7 @@ app.get('/:categorySlug/:slug/:id', async (req, res) => {
     const {categorySlug, slug, id} = req.params;
     const directories = await loadDirectoriesCached();
     const listing = await loadListingByIdCached(id);
-    res.send(await renderPage('listing', {listing, directories}));
+    res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords}));
 });
 
 // load account

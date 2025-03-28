@@ -71,8 +71,49 @@ async function loadAllCategories() {
 }
 
 // Cached versions
-export const loadDirectoriesCached = () => getCached('directories', loadDirectories);
-export const loadTopFeaturesCached = () => getCached('topFeatures', loadTopFeatures);
-export const loadAllCategoriesCached = () => getCached('allCategories', loadAllCategories);
-export const loadCategoryFeaturesCached = (slug) => getCached(`categoryFeatures-${slug}`, () => loadCategoryFeatures(slug));
-export const loadListingByIdCached = (id) => getCached(`listing-${id}`, () => loadListingById(id)); 
+const loadDirectoriesCached = () => getCached('directories', loadDirectories);
+const loadTopFeaturesCached = () => getCached('topFeatures', loadTopFeatures);
+const loadAllCategoriesCached = () => getCached('allCategories', loadAllCategories);
+const loadCategoryFeaturesCached = (slug) => getCached(`categoryFeatures-${slug}`, () => loadCategoryFeatures(slug));
+const loadListingByIdCached = (id) => getCached(`listing-${id}`, () => loadListingById(id));
+
+// Generate sitemap XML directly to response
+async function writeSitemapToResponse(res, host) {
+    const db = await Datastore.open();
+    const sitename = `https://${host}`;
+    const listings = db.getMany('listings');
+    
+    res.setHeader('Content-Type', 'application/xml');
+    
+    res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
+    res.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n');
+    
+    // Add root URL
+    res.write(`  <url>
+    <loc>${sitename}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>\n`);
+    
+    // Add all categories page
+    res.write(`  <url>
+    <loc>${sitename}/category/all</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>\n`);
+    
+    // Add all directory entries
+    await listings.forEach((listing) => {
+        res.write(`  <url>
+    <loc>${sitename}/${listing.categorySlug}/${listing.slug}/${listing._id}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`);
+    });
+    
+    res.write('</urlset>');
+    res.end();
+}
+
+// Export the new function along with existing exports
+export { writeSitemapToResponse, loadDirectoriesCached, loadTopFeaturesCached, loadAllCategoriesCached, loadCategoryFeaturesCached, loadListingByIdCached }; 
