@@ -1,1 +1,92 @@
-{"67e7ad5de741d497d625a718":{"title":"Modern Leather Sofa","siteUrl":"https://example.com/furniture/sofa","content":"Premium leather sofa with contemporary design.","category":"Living Room","categorySlug":"living-room","slug":"modern-leather-sofa"},"67e7ad5de741d497d625a719":{"title":"Ergonomic Office Chair","siteUrl":"https://example.com/furniture/office-chair","content":"Professional-grade ergonomic office chair.","category":"Office","categorySlug":"office","slug":"ergonomic-office-chair"},"67e7ad5de741d497d625a71a":{"title":"Queen Platform Bed","siteUrl":"https://example.com/furniture/platform-bed","content":"Modern queen-size platform bed with storage.","category":"Bedroom","categorySlug":"bedroom","slug":"queen-platform-bed"},"67e7ad5de741d497d625a71b":{"title":"Expandable Dining Table","siteUrl":"https://example.com/furniture/dining-table","content":"Versatile expandable dining table for 6-10 people.","category":"Dining Room","categorySlug":"dining-room","slug":"expandable-dining-table"},"67e7ad5de741d497d625a71c":{"title":"Modular Storage System","siteUrl":"https://example.com/furniture/storage","content":"Customizable modular storage solution.","category":"Storage","categorySlug":"storage","slug":"modular-storage-system"},"67e7ad5de741d497d625a71d":{"title":"Smart Recliner","siteUrl":"https://example.com/furniture/recliner","content":"Power recliner with smart features.","category":"Living Room","categorySlug":"living-room","slug":"smart-recliner"},"67e7ad5de741d497d625a71e":{"title":"Standing Desk","siteUrl":"https://example.com/furniture/standing-desk","content":"Electric height-adjustable standing desk.","category":"Office","categorySlug":"office","slug":"standing-desk"},"67e7ad5de741d497d625a71f":{"title":"Sectional Sofa","siteUrl":"https://example.com/furniture/sectional","content":"Modular sectional sofa with chaise.","category":"Living Room","categorySlug":"living-room","slug":"sectional-sofa"},"67e7ad5de741d497d625a720":{"title":"Storage Ottoman","siteUrl":"https://example.com/furniture/ottoman","content":"Multi-functional storage ottoman with tray top.","category":"Living Room","categorySlug":"living-room","slug":"storage-ottoman"},"67e7ad5de741d497d625a721":{"title":"Bunk Bed with Desk","siteUrl":"https://example.com/furniture/bunk-bed","content":"Space-saving bunk bed with integrated desk.","category":"Bedroom","categorySlug":"bedroom","slug":"bunk-bed-desk"}}
+{
+    "67e7ad5de741d497d625a718": {
+        "title": "Modern Leather Sofa",
+        "siteUrl": "https://example.com/furniture/sofa",
+        "content": "Premium leather sofa with contemporary design.",
+        "category": "Living Room",
+        "categorySlug": "living-room",
+        "slug": "modern-leather-sofa",
+        "imageUrl": "https://articture.com/cdn/shop/files/image_5_22a6a0fd-36cb-4e49-9f12-fc24691db3c5_800x.jpg?v=1695745828"
+    },
+    "67e7ad5de741d497d625a719": {
+        "title": "Ergonomic Office Chair",
+        "siteUrl": "https://example.com/furniture/office-chair",
+        "content": "Professional-grade ergonomic office chair.",
+        "category": "Office",
+        "categorySlug": "office",
+        "slug": "ergonomic-office-chair",
+        "imageUrl": "https://placehold.co/400x300?text=ErgonomicOfficeChair"
+    },
+    "67e7ad5de741d497d625a71a": {
+        "title": "Queen Platform Bed",
+        "siteUrl": "https://example.com/furniture/platform-bed",
+        "content": "Modern queen-size platform bed with storage.",
+        "category": "Bedroom",
+        "categorySlug": "bedroom",
+        "slug": "queen-platform-bed",
+        "imageUrl": "https://placehold.co/400x300?text=PlatformBed"
+    },
+    "67e7ad5de741d497d625a71b": {
+        "title": "Expandable Dining Table",
+        "siteUrl": "https://example.com/furniture/dining-table",
+        "content": "Versatile expandable dining table for 6-10 people.",
+        "category": "Dining Room",
+        "categorySlug": "dining-room",
+        "slug": "expandable-dining-table",
+        "imageUrl": "https://placehold.co/400x300?text=ExpandableDiningTable"
+    },
+    "67e7ad5de741d497d625a71c": {
+        "title": "Modular Storage System",
+        "siteUrl": "https://example.com/furniture/storage",
+        "content": "Customizable modular storage solution.",
+        "category": "Storage",
+        "categorySlug": "storage",
+        "slug": "modular-storage-system",
+        "imageUrl": "https://placehold.co/400x300?text=ModularStorageSystem"
+    },
+    "67e7ad5de741d497d625a71d": {
+        "title": "Smart Recliner",
+        "siteUrl": "https://example.com/furniture/recliner",
+        "content": "Power recliner with smart features.",
+        "category": "Living Room",
+        "categorySlug": "living-room",
+        "slug": "smart-recliner",
+        "imageUrl": "https://m.media-amazon.com/images/I/81v0na5Tw8L._AC_UF894,1000_QL80_.jpg"
+    },
+    "67e7ad5de741d497d625a71e": {
+        "title": "Standing Desk",
+        "siteUrl": "https://example.com/furniture/standing-desk",
+        "content": "Electric height-adjustable standing desk.",
+        "category": "Office",
+        "categorySlug": "office",
+        "slug": "standing-desk",
+        "imageUrl": "https://placehold.co/400x300?text=StandingDesk"
+    },
+    "67e7ad5de741d497d625a71f": {
+        "title": "Sectional Sofa",
+        "siteUrl": "https://example.com/furniture/sectional",
+        "content": "Modular sectional sofa with chaise.",
+        "category": "Living Room",
+        "categorySlug": "living-room",
+        "slug": "sectional-sofa",
+        "imageUrl": "https://placehold.co/400x300?text=SectionalSofa"
+    },
+    "67e7ad5de741d497d625a720": {
+        "title": "Storage Ottoman",
+        "siteUrl": "https://example.com/furniture/ottoman",
+        "content": "Multi-functional storage ottoman with tray top.",
+        "category": "Living Room",
+        "categorySlug": "living-room",
+        "slug": "storage-ottoman",
+        "imageUrl": "https://placehold.co/400x300?text=StorageOttoman"
+    },
+    "67e7ad5de741d497d625a721": {
+        "title": "Bunk Bed with Desk",
+        "siteUrl": "https://example.com/furniture/bunk-bed",
+        "content": "Space-saving bunk bed with integrated desk.",
+        "category": "Bedroom",
+        "categorySlug": "bedroom",
+        "slug": "bunk-bed-desk",
+        "imageUrl": "https://placehold.co/400x300?text=BunkBedWithDesk"
+    }
+}

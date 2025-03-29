@@ -6,6 +6,7 @@ console.log('prebuiltIndex',prebuiltIndex);
 
 const idx = lunr.Index.load(prebuiltIndex);
 const searchResults = document.getElementById('search-results');
+let results = [];
 
 window.handleSearch = function(query) {
     if (query.length < 2) {
@@ -16,7 +17,7 @@ window.handleSearch = function(query) {
     try {
         // AND search: add a plus sign to all words in the query  
         const plusQuery = query.trim().split(' ').map(word => '+' + word).join(' ');
-        const results = idx.search(plusQuery);
+        results = idx.search(plusQuery);
         if (results.length === 0) {
             searchResults.innerHTML = '<div class="p-4 text-sm opacity-50">No results found</div>';
         } else {
@@ -27,7 +28,19 @@ window.handleSearch = function(query) {
                 .map(result => `
                     <li>
                         <a href="/${showHitsData[result.ref].categorySlug}/${showHitsData[result.ref].slug}/${result.ref}" class="p-4 hover:bg-base-300">
-                            <div class="text-sm opacity-70 align-top"><b>${showHitsData[result.ref].title}</b><br>${showHitsData[result.ref].content}</div>
+                            <div class="flex gap-4">
+                                <div class="avatar">
+                                    <div class="w-16 h-16 rounded">
+                                        ${showHitsData[result.ref].imageUrl ? 
+                                            `<img src="${showHitsData[result.ref].imageUrl}" alt="${showHitsData[result.ref].title}" />` :
+                                            `<div class="w-16 h-16 rounded bg-base-300 flex items-center justify-center">
+                                                <span class="text-sm opacity-70">No image</span>
+                                            </div>`
+                                        }
+                                    </div>
+                                </div>
+                                <div class="text-sm opacity-70 align-top"><b>${showHitsData[result.ref].title}</b><br>${showHitsData[result.ref].content}</div>
+                            </div>
                         </a>
                     </li>
                 `).join('') + 
@@ -95,8 +108,8 @@ document.addEventListener('click', function(event) {
 });
 // Open dropdown when clicking on search input
 document.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown')) {
-        searchResults.classList.remove('hidden');
+    if (event.target.closest('.dropdown') && results.length > 0) {
+      searchResults.classList.remove('hidden');
     }
 });
 

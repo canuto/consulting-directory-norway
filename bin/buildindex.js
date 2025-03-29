@@ -39,7 +39,8 @@ const idx = lunr(function () {
             content: doc.content,
             category: doc.category,
             categorySlug: doc.categorySlug,
-            slug: doc.slug            
+            slug: doc.slug,
+            imageUrl: doc.imageUrl
         }
     }, this)
 })
