@@ -22,6 +22,10 @@ import {
     writeSitemapToResponse
 } from './helpers.js';
 
+// replace with your own title
+const title = 'Furnitooles';
+
+// Define the page templates
 const templates = {
     about: handlebars.compile(about),
     contact: handlebars.compile(contact),
@@ -33,6 +37,7 @@ const templates = {
     layout: handlebars.compile(layout)
 }
 
+// Render the page
 const renderPage = async (page, data) => {
     /*const db = await Datastore.open();
     const cache = await db.get(`pagecache-${page}`);
@@ -54,16 +59,15 @@ handlebars.registerHelper('eq', function(a, b) {
     return a === b;
 });
 
-
+// Define the authentication middleware for open pages
 app.auth(/^\/(index|category|account|contact|about\/.*)?$/, (req, res, next) => next());
 
-const rand = () => Math.random();
 
-// Defining routes and page template to render for different pages
+// render the index page
 app.get('/', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const topFeatures = await loadTopFeaturesCached();
-    res.send(await renderPage('index', {directories, topFeatures}));
+    res.send(await renderPage('index', {directories, topFeatures, title}));
 });
 
 // Generate sitemap.xml
@@ -75,21 +79,21 @@ app.get('/sitemap.xml', async (req, res) => {
 app.get('/contact', async (req, res) => {
     console.log('contact');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('contact', {directories}));
+    res.send(await renderPage('contact', {directories, title}));
 });
 
 // load about
 app.get('/about', async (req, res) => {
     console.log('about');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('about', {directories}));
+    res.send(await renderPage('about', {directories, title}));
 });
 
 // load all categories
 app.get('/all', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const allCategories = await loadAllCategoriesCached();
-    res.send(await renderPage('all', {directories, allCategories}));
+    res.send(await renderPage('all', {directories, allCategories, title}));
 });
 
 // load category by slug
@@ -97,7 +101,7 @@ app.get('/:slug', async (req, res) => {
     const {slug} = req.params;
     const directories = await loadDirectoriesCached();
     const categoryFeatures = await loadCategoryFeaturesCached(slug);    
-    res.send(await renderPage('category', {directories, categoryFeatures, category: slug}));
+    res.send(await renderPage('category', {directories, categoryFeatures, category: slug, title}));
 });
 
 // load listing by slug and id
@@ -105,14 +109,14 @@ app.get('/:categorySlug/:slug/:id', async (req, res) => {
     const {categorySlug, slug, id} = req.params;
     const directories = await loadDirectoriesCached();
     const listing = await loadListingByIdCached(id);
-    res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords}));
+    res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords, title}));
 });
 
 // load account
 app.get('/account', async (req, res) => {
     console.log('account');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('account', {directories}));
+    res.send(await renderPage('account', {directories, title}));
 });
 
 

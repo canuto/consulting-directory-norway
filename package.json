@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "clean": "coho dropcollection --collection 'listings'",
+    "clean": "coho dropcollection --collection 'listings' && coho query _kvspacecache --delete",
     "mock": "npm run clean && coho createcollection --collection 'listings' && coho import -f bin/testdata-listings.json -c listings",
     "setup": "npm run clean && coho createcollection --collection 'listings' && coho import -f build/output.json -c listings",
     "buildsitemap": "node bin/buildsitemap.js",

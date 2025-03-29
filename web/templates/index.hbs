@@ -4,22 +4,26 @@
   <div class="hero bg-base-200 min-h-[50vh] items-start pt-8">
     <div class="hero-content text-center">
       <div class="max-w-[800px] mx-auto">
-        <h1 class="text-5xl font-bold">Backend tools</h1>
+        <h1 class="text-5xl font-bold">{{title}}</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">    
         {{#each topFeatures}}
-        <div class="card bg-base-100 shadow-sm">
-          
+        <a href="/{{categorySlug}}/{{slug}}/{{_id}}" class="card bg-base-100 shadow-sm hover:bg-base-200 transition-colors">
+          {{#if imageUrl}}
+          <figure class="h-48">
+            <img src="{{imageUrl}}" alt="{{title}}" class="w-full h-full object-cover"/>
+          </figure>
+          {{/if}}
           <div class="card-body text-left">
             <h2 class="card-title">{{title}}</h2>
 
-            <p>{{this.category}}</p>
-            <p>{{this.content}}</p>
+            <p class="font-bold">{{this.category}}</p>
+            <p>{{#if this.ingress}}{{this.ingress}}{{else}}{{this.content}}{{/if}}</p>
 
             <div class="card-actions justify-end">
-              <a href="/{{categorySlug}}/{{slug}}/{{_id}}" class="btn btn-primary">Read more</a>
+              <div class="btn btn-primary">Read more</div>
             </div>
           </div>
-        </div>
+        </a>
         {{/each}}
       </div>
       </div>

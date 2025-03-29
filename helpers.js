@@ -5,7 +5,7 @@ const ONE_HOUR = 1000*60*60;
 // Cache helper
 async function getCached(key, loader, ttl = ONE_HOUR) {
     const db = await Datastore.open();
-    const cached = await db.get(`cache-${key}`);
+    const cached = await db.get(`cache-${key}`, {keyspace: 'cache'});
     
     if (cached) {
         console.log(`Cache hit for db ${key}`);
@@ -13,7 +13,7 @@ async function getCached(key, loader, ttl = ONE_HOUR) {
     }
 
     const data = await loader();
-    await db.set(`cache-${key}`, JSON.stringify(data), {ttl: ttl});
+    await db.set(`cache-${key}`, JSON.stringify(data), {ttl: ttl, keyspace: 'cache'});
     return data;
 }
 
