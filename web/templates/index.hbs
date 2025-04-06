@@ -1,18 +1,17 @@
 <!-- Main Content -->
 {{#extend "layout"}}
 {{#content "main"}}
-  <div class="hero bg-base-200 min-h-[50vh] items-start pt-8">
-    <div class="hero-content text-center">
-      <div class="max-w-[800px] mx-auto">
-        <h1 class="text-5xl font-bold">{{title}}</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">    
+<div class="hero min-h-[50vh] items-start pt-8">
+  <div class="hero-content text-center">
+    <div class="max-w-[800px] mx-auto">
+      <h1 class="text-5xl font-bold">{{title}}</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-5">
         {{#each topFeatures}}
-        <a href="/{{categorySlug}}/{{slug}}/{{_id}}" class="card bg-base-100 shadow-sm hover:bg-base-200 transition-colors">
-          {{#if imageUrl}}
+        <a href="/{{categorySlug}}/{{slug}}/{{_id}}"
+          class="card bg-base-100 shadow-sm hover:bg-base-200 transition-colors">
           <figure class="h-48">
-            <img src="{{imageUrl}}" alt="{{title}}" class="w-full h-full object-cover"/>
-          </figure>
-          {{/if}}
+            <img src="{{#if altImageUrl}}{{altImageUrl}}{{else}}/screenshot?url={{siteUrl}}{{/if}}" alt="{{title}}" class="w-full h-full object-cover" />
+          </figure>          
           <div class="card-body text-left">
             <h2 class="card-title">{{title}}</h2>
 
@@ -26,9 +25,18 @@
         </a>
         {{/each}}
       </div>
-      </div>
     </div>
   </div>
+</div>
+
+<div class="my-8 p-5 font-sans max-w-[320px] mx-auto">
+    {{bannerAd 
+        link="https://codehooks.io" 
+        image="https://codehooks.io/img/codehooks-feature.svg" 
+        text="A complete backend database for your next project."
+        linkText="Codehooks.io"
+    }}
+</div>
 
 {{/content}}
 {{/extend}}

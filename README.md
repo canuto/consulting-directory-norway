@@ -20,9 +20,28 @@ coho init --empty
 ```
 
 ## Setup with Mock Data
+
 ```bash
 npm run mock
 ```
+
+This command initializes your directory service with sample data from `bin/testdata-listings.json`. The mock data includes:
+
+- Furniture listings with detailed product information
+- Categories like Living Room, Office, Bedroom, and Dining Room
+- SEO-optimized content with keywords and descriptions
+- Rich metadata including images, features, and specifications
+- Hierarchical organization with categories and directories
+
+Each listing contains:
+- Title and SEO-friendly slug
+- Category and directory classification
+- Detailed product specifications
+- Featured status indicators
+- High-quality product descriptions
+- Image URLs and website links
+
+The mock data creates a fully functional directory service, perfect for testing and development before adding your own content.
 
 ## Deployment
 
@@ -31,37 +50,45 @@ npm run mock
 npm run deploy
 ```
 
+This command deploys both the backend service and the client application. After deployment:
+
+1. Your service will be available at your project's auto-generated domain:
+   ```
+   https://your-project-name.codehooks.io
+   ```
+   (e.g., `https://rapid-fox-f20c.codehooks.io`)
+
+2. The deployment includes:
+   - Backend API endpoints for managing listings
+   - Frontend client application with complete UI
+   - Sample data (if you ran the mock setup)
+   - SEO-optimized pages for all listings
+
+Visit your project's domain to see the live directory service in action.
+
 ## UI Customization
 
 This project uses [DaisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 ### DaisyUI Theme Customization
 
-1. Modify the theme in `tailwind.config.js`:
-```javascript
-module.exports = {
-  //...
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          "primary": "#570DF8",
-          "secondary": "#F000B8",
-          "accent": "#37CDBE",
-          "neutral": "#3D4451",
-          "base-100": "#FFFFFF",
-          // Add more color customizations
-        },
-      },
-    ],
-  },
+The theme configuration is managed in `web/css/input.css` using DaisyUI's plugin syntax:
+
+```css
+@plugin "daisyui" {
+    themes: light --default, dark, night;
 }
 ```
 
-2. Apply themes using the `data-theme` attribute in `web/templates/layout.hbs`:
-```html
-<html data-theme="mytheme">
-```
+This configuration:
+- Sets `light` as the default theme
+- Includes `dark` and `night` themes as alternatives
+- Users can switch between these themes using DaisyUI's theme change utilities
+
+To modify available themes:
+1. Edit the themes list in `web/css/input.css`
+2. Choose from [DaisyUI's built-in themes](https://daisyui.com/docs/themes/)
+3. You can also add custom themes following DaisyUI's theming guidelines
 
 ### Tailwind CSS Customization
 

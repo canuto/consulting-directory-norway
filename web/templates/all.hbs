@@ -1,5 +1,13 @@
 {{#extend "layout"}}
 {{#content "main"}}
+    <div class="my-8 p-5 font-sans max-w-[320px] mx-auto">
+        {{bannerAd 
+            link="https://codehooks.io" 
+            image="https://codehooks.io/img/logo.svg" 
+            text="A super-simple yet complete backend for your next project"
+            linkText="Visit Codehooks.io"
+        }}
+    </div>
     <div class="card bg-base-100 shadow-lg">
         <div class="card-body">
             <h1 class="card-title text-2xl mb-4">All Categories</h1>
@@ -12,13 +20,7 @@
                     <a href="/{{categorySlug}}/{{slug}}/{{_id}}" class="flex items-center gap-4 p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors cursor-pointer">
                         <div class="avatar">
                             <div class="w-16 h-16 rounded">
-                                {{#if imageUrl}}
-                                <img src="{{imageUrl}}" alt="{{title}}" />
-                                {{else}}
-                                <div class="w-16 h-16 rounded bg-base-300 flex items-center justify-center">
-                                    <span class="text-sm opacity-70">No image</span>
-                                </div>
-                                {{/if}}
+                                <img src="{{#if altImageUrl}}{{altImageUrl}}{{else}}/screenshot?url={{siteUrl}}{{/if}}" alt="{{title}}" />                                
                             </div>
                         </div>
                         <div class="flex-1">

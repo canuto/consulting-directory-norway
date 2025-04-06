@@ -1,16 +1,12 @@
 {{#extend "layout"}}
 {{#content "main"}}
-<div class="hero bg-base-200 min-h-[50vh] items-start pt-8">
+<div class="hero min-h-[50vh] items-start pt-8">
     <div class="hero-content text-center">
         <div class="max-w-[800px] mx-auto">
             <h1 class="text-5xl font-bold">{{listing.title}}</h1>
             <div class="card bg-base-100 w-full lg:max-w-[740px] lg:mx-0 mt-4">
                 <figure class="px-4 pt-4">
-                    {{#if listing.imageUrl}}
-                    <img src="{{listing.imageUrl}}" alt="{{listing.title}}" class="rounded-xl w-full">
-                    {{else}}
-                    <img src="https://placehold.co/96x96" alt="{{listing.title}}">
-                    {{/if}}
+                    <img src="{{#if listing.altImageUrl}}{{listing.altImageUrl}}{{else}}/screenshot?url={{listing.siteUrl}}{{/if}}" alt="{{listing.title}}" class="rounded-xl w-full">                    
                 </figure>
 
                 <div class="card-body text-left">                    
@@ -48,6 +44,14 @@
             </div>
         </div>
     </div>
+</div>
+<div class="my-8 p-5 font-sans max-w-[320px] mx-auto">
+    {{bannerAd 
+        link="https://codehooks.io" 
+        image="https://codehooks.io/img/logo.svg" 
+        text="A super-simple yet complete backend for your next project."
+        linkText="Codehooks.io"
+    }}
 </div>
 {{/content}}
 {{/extend}}

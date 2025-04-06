@@ -2,8 +2,10 @@
 * Codehooks (c) example
 * A directory web site with dynamic content
 */
-import {app, Datastore, aggregation} from 'codehooks-js'
+import {app, Datastore, filestore} from 'codehooks-js'
 import handlebars from 'handlebars';
+import {URL} from 'url';
+import fetch from 'node-fetch';
 import layouts from 'handlebars-layouts';
 import about from './web/templates/about.hbs';
 import contact from './web/templates/contact.hbs';
@@ -23,7 +25,7 @@ import {
 } from './helpers.js';
 
 // replace with your own title
-const title = 'Furnitooles';
+const title = 'Root directory';
 
 // Define the page templates
 const templates = {
@@ -59,8 +61,37 @@ handlebars.registerHelper('eq', function(a, b) {
     return a === b;
 });
 
-// Define the authentication middleware for open pages
-app.auth(/^\/(index|category|account|contact|about\/.*)?$/, (req, res, next) => next());
+// Register banner ad helper
+handlebars.registerHelper('bannerAd', function(options) {
+    const { link, image, text, linkText } = options.hash;
+    return new handlebars.SafeString(`
+        <div class="card card-side bg-base-200 shadow-sm flex flex-row relative">
+            <div class="absolute top-1 right-2 text-xs opacity-50">Ad</div>
+            <figure class="w-24">
+                <img
+                src="${image}"
+                alt="Advertisement"
+                class="h-[120px] object-cover" />
+            </figure>
+            <div class="card-body">
+                <p>${text}</p>
+                <div class="card-actions justify-end">
+                    <a href="${link}" target="_blank" rel="noopener noreferrer">${linkText}</a>
+                </div>
+            </div>
+        </div>
+    `);
+});
+
+
+
+// crudlify listings collection
+const listingJSONSchema = {
+    title: {type: 'string', required: true},
+    siteUrl: {type: 'string', required: true},
+    screenshot: {type: 'string', required: false}
+}
+app.crudlify({'listings': null}, {prefix: '/api'});
 
 
 // render the index page
@@ -73,6 +104,71 @@ app.get('/', async (req, res) => {
 // Generate sitemap.xml
 app.get('/sitemap.xml', async (req, res) => {
     await writeSitemapToResponse(res, req.headers.host);
+});
+
+// create screenshot of a url
+app.post('/screenshot', async (req, res) => {
+    const db = await Datastore.open();
+    const siteUrl = req.body.siteUrl;
+    console.log('worker to create screenshot of a url', siteUrl);
+    try {
+        // use fetch to get the screenshot from a url
+        const response = await fetch(`https://sea-lion-app-5qcgn.ondigitalocean.app/screenshot?url=${siteUrl}`, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; FoolstoolsBot/1.0; +https://foolstools.com)'
+            }
+        });
+        const buf = await response.buffer();
+        console.log('screenshot buffer length:', buf.length, 'bytes', response.status, response.statusText);
+        if (response.status > 201) {
+            console.error('error', buf.toString('utf-8'));
+            res.status(response.status).end(response.statusText);
+        } else {
+            const result = await filestore.saveFile(`/screenshots/${siteUrl}`, buf);
+            console.log('screenshot saved', result);
+            //await db.updateOne('listings', {_id: listing._id}, {$set: {screenshotWorking: false, screenshot: result.id }});
+            res.end();    
+        }
+    } catch (error) {
+        console.error('error', error);
+        job.end();
+    }
+});
+
+// serve a screenshot of a url
+app.get('/screenshot', async (req, res) => {
+    const url = req.query.url;
+    const parsedUrl = new URL(url);
+    const pathname = parsedUrl.pathname === '/' ? '' : parsedUrl.pathname;
+    const filename = `${parsedUrl.hostname}${pathname.replace(/\//g, '_')}.png`;
+    console.log('serve a screenshot of a url', url, filename);
+    try {
+        const filestream = await filestore.getReadStream(`/screenshots/${filename}`);
+        res.set('content-type', 'image/png');
+        // stream content back to client    
+        filestream
+        .on('data', (buf) => {
+          res.write(buf, 'buffer')
+        })    
+        .on('end', () => {
+          res.end()
+        })
+        
+      } catch (error) {
+        console.error(error)
+        // Create a 1x1 transparent PNG buffer for missing images
+        const missingImageBuffer = Buffer.from([
+            0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D,
+            0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
+            0x08, 0x06, 0x00, 0x00, 0x00, 0x1F, 0x15, 0xC4, 0x89, 0x00, 0x00, 0x00,
+            0x0B, 0x49, 0x44, 0x41, 0x54, 0x08, 0xD7, 0x63, 0xFF, 0xFF, 0xFF, 0x00,
+            0x00, 0x05, 0x00, 0x01, 0xE2, 0xB4, 0x60, 0x2E, 0x00, 0x00, 0x00, 0x00,
+            0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82
+        ]);
+        res.set('content-type', 'image/png');
+        res.write(missingImageBuffer, 'buffer');
+        res.end();
+      }
 });
 
 // load contact
@@ -114,23 +210,35 @@ app.get('/:categorySlug/:slug/:id', async (req, res) => {
 
 // load account
 app.get('/account', async (req, res) => {
-    console.log('account');
+    console.log('account');    
     const directories = await loadDirectoriesCached();
     res.send(await renderPage('account', {directories, title}));
 });
 
 
+// Define the authentication middleware for open pages
+app.auth('/*', (req, res, next) => {
+    if (req.method === 'GET') {
+        console.log('auth OK', req.originalUrl);
+        next()
+    } else {
+        console.log('auth NOT OK', req.originalUrl);
+        res.status(401).end('Unauthorized');
+    }
+    
+});
 
 // load static files (client cache)
 app.static({route: "/", directory: "/web", notFound: "/404.html"}/*, (_, res, next) => {
-    console.log('If you see this, the client cache is invalidated or called for the first time');
-    const ONE_HOUR =  1000*60*60;
-    res.set('Cache-Control', `public, max-age=3600, s-maxage=3600`);
-    res.setHeader("Expires", new Date(Date.now() + ONE_HOUR).toUTCString());
-    //res.set('Vary', '*');
-    res.removeHeader('Pragma');
-    next();
-  }*/)
+//     console.log('If you see this, the client cache is invalidated or called for the first time');
+//     const ONE_HOUR =  1000*60*60;
+//     res.set('Cache-Control', `public, max-age=3600, s-maxage=3600`);
+//     res.setHeader("Expires", new Date(Date.now() + ONE_HOUR).toUTCString());
+//     //res.set('Vary', '*');
+//     res.removeHeader('Pragma');
+//     next();
+}*/)
+
 
 // bind to serverless runtime
 export default app.init();

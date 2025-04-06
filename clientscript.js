@@ -31,11 +31,13 @@ window.handleSearch = function(query) {
                             <div class="flex gap-4">
                                 <div class="avatar">
                                     <div class="w-16 h-16 rounded">
-                                        ${showHitsData[result.ref].imageUrl ? 
-                                            `<img src="${showHitsData[result.ref].imageUrl}" alt="${showHitsData[result.ref].title}" />` :
-                                            `<div class="w-16 h-16 rounded bg-base-300 flex items-center justify-center">
-                                                <span class="text-sm opacity-70">No image</span>
-                                            </div>`
+                                        ${showHitsData[result.ref].altImageUrl ? 
+                                            `<img src="${showHitsData[result.ref].altImageUrl}" alt="${showHitsData[result.ref].title}" />` :
+                                            showHitsData[result.ref].siteUrl ?
+                                                `<img src="/screenshot?url=${showHitsData[result.ref].siteUrl}" alt="${showHitsData[result.ref].title}" />` :
+                                                `<div class="w-16 h-16 rounded bg-base-300 flex items-center justify-center">
+                                                    <span class="text-sm opacity-70">No image</span>
+                                                </div>`
                                         }
                                     </div>
                                 </div>

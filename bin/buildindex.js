@@ -36,11 +36,11 @@ const idx = lunr(function () {
         showHitsData[doc._id] = {
             title: doc.title,
             siteUrl: doc.siteUrl,
+            altImageUrl: doc.altImageUrl || null,
             content: doc.content,
             category: doc.category,
             categorySlug: doc.categorySlug,
-            slug: doc.slug,
-            imageUrl: doc.imageUrl
+            slug: doc.slug
         }
     }, this)
 })
