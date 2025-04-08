@@ -48,3 +48,16 @@ coverage/
 
 # Yarn Integrity file
 .yarn-integrity 
+
+# codehooks config
+config.json
+
+# web folder generated files
+web/css/mystyles.css
+web/js/lunr-index.json
+web/js/mybundle.js
+web/js/show-hits-data.json
+
+# screenshots folder
+screenshots/
+

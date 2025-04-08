@@ -11,7 +11,7 @@
     "buildsitemap": "node bin/buildsitemap.js",
     "buildindex": "coho query listings > build/database-listings.json && node bin/buildindex.js",
     "css": "npx @tailwindcss/cli -i ./web/css/input.css -o ./web/css/mystyles.css",
-    "build": "npm run css && npm run buildindex",
+    "build": "node -e \"require('fs').mkdirSync('build', { recursive: true })\" && npm run css && npm run buildindex",
     "bundle": "esbuild ./clientscript.js --bundle --minify --outfile=./web/js/mybundle.js",
     "deploy": "npm run build && npm run bundle && codehooks deploy -d && codehooks logs --follow"
   },
