@@ -14,7 +14,7 @@ cd directory-template
 npm install
 ```
 
-3. Connect local project to your Codehooks.ui project:
+3. Connect local project to your Codehooks.io project:
 ```bash
 coho init --empty
 ```
