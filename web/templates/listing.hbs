@@ -4,9 +4,12 @@
     <div class="hero-content text-center">
         <div class="max-w-[800px] mx-auto">
             <h1 class="text-5xl font-bold">{{listing.title}}</h1>
+            {{#unless (eq listing.companyName listing.title)}}
+            <p class="py-6 text-xl text-base-content/70">{{listing.companyName}}</p>
+            {{/unless}}
             <div class="card bg-base-100 w-full lg:max-w-[740px] lg:mx-0 mt-4">
                 <figure class="px-4 pt-4">
-                    <img src="{{#if listing.altImageUrl}}{{listing.altImageUrl}}{{else}}/screenshot?url={{listing.siteUrl}}{{/if}}" alt="{{listing.title}}" class="rounded-xl w-full">                    
+                    <img src="{{#if listing.altImageUrl}}{{listing.altImageUrl}}?cachebrk={{../cacheBreaker}}{{else}}/screenshot?url={{listing.siteUrl}}&cachebrk={{../cacheBreaker}}{{/if}}" alt="{{listing.title}}" class="rounded-xl w-full">                    
                 </figure>
 
                 <div class="card-body text-left">                    

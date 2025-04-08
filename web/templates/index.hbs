@@ -5,12 +5,13 @@
   <div class="hero-content text-center">
     <div class="max-w-[800px] mx-auto">
       <h1 class="text-5xl font-bold">{{title}}</h1>
+      <p class="py-6 text-xl text-base-content/70">{{{ingress}}}</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-5">
         {{#each topFeatures}}
         <a href="/{{categorySlug}}/{{slug}}/{{_id}}"
           class="card bg-base-100 shadow-sm hover:bg-base-200 transition-colors">
           <figure class="h-48">
-            <img src="{{#if altImageUrl}}{{altImageUrl}}{{else}}/screenshot?url={{siteUrl}}{{/if}}" alt="{{title}}" class="w-full h-full object-cover" />
+            <img src="{{#if altImageUrl}}{{altImageUrl}}?cachebrk={{../cacheBreaker}}{{else}}/screenshot?url={{siteUrl}}&cachebrk={{../cacheBreaker}}{{/if}}" alt="{{title}}" class="w-full h-full object-cover" />
           </figure>          
           <div class="card-body text-left">
             <h2 class="card-title">{{title}}</h2>

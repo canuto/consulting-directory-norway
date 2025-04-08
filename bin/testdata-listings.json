@@ -1,6 +1,7 @@
 [
     {
         "title": "Modern Leather Sofa",
+        "company": "Articture",
         "slug": "modern-leather-sofa",
         "imageUrl": "https://articture.com/cdn/shop/files/image_5_22a6a0fd-36cb-4e49-9f12-fc24691db3c5_800x.jpg?v=1695745828",
         "siteUrl": "https://example.com/furniture/sofa",
@@ -25,6 +26,7 @@
     },
     {
         "title": "Ergonomic Office Chair",
+        "company": "WorkWell Designs",
         "slug": "ergonomic-office-chair",
         "imageUrl": "https://placehold.co/400x300?text=ErgonomicOfficeChair",
         "siteUrl": "https://example.com/furniture/office-chair",
@@ -49,6 +51,7 @@
     },
     {
         "title": "Queen Platform Bed",
+        "company": "DreamSpace",
         "slug": "queen-platform-bed",
         "imageUrl": "https://placehold.co/400x300?text=PlatformBed",
         "siteUrl": "https://example.com/furniture/platform-bed",
@@ -73,6 +76,7 @@
     },
     {
         "title": "Expandable Dining Table",
+        "company": "Heritage Craftworks",
         "slug": "expandable-dining-table",
         "imageUrl": "https://placehold.co/400x300?text=ExpandableDiningTable",
         "siteUrl": "https://example.com/furniture/dining-table",
@@ -97,6 +101,7 @@
     },
     {
         "title": "Modular Storage System",
+        "company": "StorageSmart",
         "slug": "modular-storage-system",
         "imageUrl": "https://placehold.co/400x300?text=ModularStorageSystem",
         "siteUrl": "https://example.com/furniture/storage",
@@ -121,6 +126,7 @@
     },
     {
         "title": "Smart Recliner",
+        "company": "ComfortTech",
         "slug": "smart-recliner",
         "imageUrl": "https://m.media-amazon.com/images/I/81v0na5Tw8L._AC_UF894,1000_QL80_.jpg",
         "siteUrl": "https://example.com/furniture/recliner",
@@ -145,6 +151,7 @@
     },
     {
         "title": "Standing Desk",
+        "company": "WorkWell Designs",
         "slug": "standing-desk",
         "imageUrl": "https://placehold.co/400x300?text=StandingDesk",
         "siteUrl": "https://example.com/furniture/standing-desk",
@@ -169,11 +176,12 @@
     },
     {
         "title": "Sectional Sofa",
+        "company": "LuxeLiving",
+        "slug": "sectional-sofa",
         "imageUrl": "https://placehold.co/400x300?text=SectionalSofa",
         "siteUrl": "https://example.com/furniture/sectional",
         "content": "Modular sectional sofa with chaise.",
         "category": "Living Room",
-        "slug": "sectional-sofa",
         "categorySlug": "living-room",
         "directory": "seating",
         "publishDate": "2024-03-13",
@@ -193,11 +201,12 @@
     },
     {
         "title": "Storage Ottoman",
+        "company": "Urban Essentials",
+        "slug": "storage-ottoman",
         "imageUrl": "https://placehold.co/400x300?text=StorageOttoman",
         "siteUrl": "https://example.com/furniture/ottoman",
         "content": "Multi-functional storage ottoman with tray top.",
         "category": "Living Room",
-        "slug": "storage-ottoman",
         "categorySlug": "living-room",
         "directory": "seating",
         "publishDate": "2024-03-12",
@@ -217,6 +226,8 @@
     },
     {
         "title": "Bunk Bed with Desk",
+        "company": "KidsSpace",
+        "slug": "bunk-bed-desk",
         "imageUrl": "https://placehold.co/400x300?text=BunkBedWithDesk",
         "siteUrl": "https://example.com/furniture/bunk-bed",
         "content": "Space-saving bunk bed with integrated desk.",

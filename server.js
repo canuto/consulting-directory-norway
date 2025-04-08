@@ -21,11 +21,10 @@ import {
     loadAllCategoriesCached, 
     loadCategoryFeaturesCached,
     loadListingByIdCached,
-    writeSitemapToResponse
+    writeSitemapToResponse,
+    setCacheHeaders
 } from './helpers.js';
-
-// replace with your own title
-const title = 'Root directory';
+import settings from './settings.js';
 
 // Define the page templates
 const templates = {
@@ -38,6 +37,7 @@ const templates = {
     listing: handlebars.compile(listing),
     layout: handlebars.compile(layout)
 }
+
 
 // Render the page
 const renderPage = async (page, data) => {
@@ -56,34 +56,8 @@ const renderPage = async (page, data) => {
 handlebars.registerHelper(layouts(handlebars));
 handlebars.registerPartial('layout', layout);
 
-// Register the equals Handlebarshelper
-handlebars.registerHelper('eq', function(a, b) {
-    return a === b;
-});
-
-// Register banner ad helper
-handlebars.registerHelper('bannerAd', function(options) {
-    const { link, image, text, linkText } = options.hash;
-    return new handlebars.SafeString(`
-        <div class="card card-side bg-base-200 shadow-sm flex flex-row relative">
-            <div class="absolute top-1 right-2 text-xs opacity-50">Ad</div>
-            <figure class="w-24">
-                <img
-                src="${image}"
-                alt="Advertisement"
-                class="h-[120px] object-cover" />
-            </figure>
-            <div class="card-body">
-                <p>${text}</p>
-                <div class="card-actions justify-end">
-                    <a href="${link}" target="_blank" rel="noopener noreferrer">${linkText}</a>
-                </div>
-            </div>
-        </div>
-    `);
-});
-
-
+// cache breaker variable
+let cacheBreaker = process.env.CACHE_BREAKER || '0';
 
 // crudlify listings collection
 const listingJSONSchema = {
@@ -98,7 +72,8 @@ app.crudlify({'listings': null}, {prefix: '/api'});
 app.get('/', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const topFeatures = await loadTopFeaturesCached();
-    res.send(await renderPage('index', {directories, topFeatures, title}));
+    setCacheHeaders(res);
+    res.send(await renderPage('index', {directories, topFeatures, title: settings.title, ingress: settings.ingress, cacheBreaker}));
 });
 
 // Generate sitemap.xml
@@ -111,7 +86,7 @@ app.post('/screenshot', async (req, res) => {
     const db = await Datastore.open();
     const siteUrl = req.body.siteUrl;
     console.log('worker to create screenshot of a url', siteUrl);
-    try {
+    try {        
         // use fetch to get the screenshot from a url
         const response = await fetch(`https://sea-lion-app-5qcgn.ondigitalocean.app/screenshot?url=${siteUrl}`, {
             headers: {
@@ -143,7 +118,8 @@ app.get('/screenshot', async (req, res) => {
     const filename = `${parsedUrl.hostname}${pathname.replace(/\//g, '_')}.png`;
     console.log('serve a screenshot of a url', url, filename);
     try {
-        const filestream = await filestore.getReadStream(`/screenshots/${filename}`);
+        setCacheHeaders(res);
+        const filestream = await filestore.getReadStream(`/screenshots/${filename}`);        
         res.set('content-type', 'image/png');
         // stream content back to client    
         filestream
@@ -175,21 +151,21 @@ app.get('/screenshot', async (req, res) => {
 app.get('/contact', async (req, res) => {
     console.log('contact');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('contact', {directories, title}));
+    res.send(await renderPage('contact', {directories, title: settings.title, cacheBreaker}));
 });
 
 // load about
 app.get('/about', async (req, res) => {
     console.log('about');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('about', {directories, title}));
+    res.send(await renderPage('about', {directories, title: settings.title, cacheBreaker}));
 });
 
 // load all categories
 app.get('/all', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const allCategories = await loadAllCategoriesCached();
-    res.send(await renderPage('all', {directories, allCategories, title}));
+    res.send(await renderPage('all', {directories, allCategories, title: settings.title, cacheBreaker}));
 });
 
 // load category by slug
@@ -197,22 +173,30 @@ app.get('/:slug', async (req, res) => {
     const {slug} = req.params;
     const directories = await loadDirectoriesCached();
     const categoryFeatures = await loadCategoryFeaturesCached(slug);    
-    res.send(await renderPage('category', {directories, categoryFeatures, category: slug, title}));
+    res.send(await renderPage('category', {directories, categoryFeatures, category: slug, title: settings.title, cacheBreaker}));
 });
 
 // load listing by slug and id
 app.get('/:categorySlug/:slug/:id', async (req, res) => {
     const {categorySlug, slug, id} = req.params;
-    const directories = await loadDirectoriesCached();
-    const listing = await loadListingByIdCached(id);
-    res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords, title}));
+    try {
+        const directories = await loadDirectoriesCached();
+        const listing = await loadListingByIdCached(id);
+        if (!listing) {
+            throw new Error('Listing not found');
+        }
+        res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords, title: settings.title, cacheBreaker}));
+    } catch (error) {
+        console.error(`Error loading listing ${id}:`, error);
+        res.status(404).send('Listing not found');
+    }
 });
 
 // load account
 app.get('/account', async (req, res) => {
     console.log('account');    
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('account', {directories, title}));
+    res.send(await renderPage('account', {directories, title: settings.title, cacheBreaker}));
 });
 
 
@@ -229,15 +213,10 @@ app.auth('/*', (req, res, next) => {
 });
 
 // load static files (client cache)
-app.static({route: "/", directory: "/web", notFound: "/404.html"}/*, (_, res, next) => {
-//     console.log('If you see this, the client cache is invalidated or called for the first time');
-//     const ONE_HOUR =  1000*60*60;
-//     res.set('Cache-Control', `public, max-age=3600, s-maxage=3600`);
-//     res.setHeader("Expires", new Date(Date.now() + ONE_HOUR).toUTCString());
-//     //res.set('Vary', '*');
-//     res.removeHeader('Pragma');
-//     next();
-}*/)
+app.static({route: "/", directory: "/web", notFound: "/404.html"}, (_, res, next) => {
+    setCacheHeaders(res);
+    next();
+})
 
 
 // bind to serverless runtime

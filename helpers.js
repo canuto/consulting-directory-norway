@@ -1,6 +1,8 @@
 import { Datastore } from 'codehooks-js'
+import handlebars from 'handlebars';
 
 const ONE_HOUR = 1000*60*60;
+const ONE_MONTH = 1000*60*60*24*30;
 
 // Cache helper
 async function getCached(key, loader, ttl = ONE_HOUR) {
@@ -115,5 +117,40 @@ async function writeSitemapToResponse(res, host) {
     res.end();
 }
 
+// Register banner ad helper
+handlebars.registerHelper('bannerAd', function(options) {
+    const { link, image, text, linkText } = options.hash;
+    return new handlebars.SafeString(`
+        <div class="card card-side bg-base-200 shadow-sm flex flex-row relative rounded-none">
+            <div class="absolute top-1 right-2 text-xs opacity-50 p-1">AD</div>
+            <figure class="w-24">
+                <img
+                src="${image}"
+                alt="Advertisement"
+                class="h-[120px] object-cover" />
+            </figure>
+            <div class="card-body">
+                <p>${text}</p>
+                <div class="card-actions justify-end">
+                    <a href="${link}" target="_blank" rel="noopener noreferrer">${linkText}</a>
+                </div>
+            </div>
+        </div>
+    `);
+});
+
+// Register the equals Handlebarshelper
+handlebars.registerHelper('eq', function(a, b) {
+    return a === b;
+});
+
+const setCacheHeaders = (res) => {
+    console.log('If you see this, the client cache is invalidated or called for the first time');        
+    res.set('Cache-Control', `public, max-age=2592000, s-maxage=2592000`);
+    res.setHeader("Expires", new Date(Date.now() + ONE_MONTH).toUTCString());
+    //res.set('Vary', '*');
+    res.removeHeader('Pragma');
+}
+
 // Export the new function along with existing exports
-export { writeSitemapToResponse, loadDirectoriesCached, loadTopFeaturesCached, loadAllCategoriesCached, loadCategoryFeaturesCached, loadListingByIdCached }; 
+export { setCacheHeaders, writeSitemapToResponse, loadDirectoriesCached, loadTopFeaturesCached, loadAllCategoriesCached, loadCategoryFeaturesCached, loadListingByIdCached }; 

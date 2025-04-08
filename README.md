@@ -66,6 +66,24 @@ This command deploys both the backend service and the client application. After 
 
 Visit your project's domain to see the live directory service in action.
 
+## Create automatic screenshots
+There's a utility tool that let's you create a screenshot for each url in the database.
+
+Run this command to create a local folder `~/tmp/screenshots` of screenshots:
+```
+npm run screenshot  
+```
+
+This may take a while - grab a coffee or tea ☕️.
+
+After the local screenshots have been created, you may upload all to the Codehooks blob storage with this command:
+
+```
+npm run uploadscreenshots
+```
+
+This mau also take some time - refill your cup ☕️.
+
 ## UI Customization
 
 This project uses [DaisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/) for styling.

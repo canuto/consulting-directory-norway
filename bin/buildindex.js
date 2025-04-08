@@ -11,19 +11,7 @@ const idx = lunr(function () {
     this.field('title')
     this.field('content')
     this.field('category')
-    this.field('siteUrl')
-    // smart url's
-    this.field('urlTokens', {
-        extractor: doc => {
-            const url = doc.siteUrl || '';
-            // Remove common prefixes and suffixes
-            const cleanUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
-            // Split by dots and dashes
-            const parts = cleanUrl.split(/[.-]/);
-            // Return all parts plus the original cleaned URL
-            return [...parts, cleanUrl].join(' ');
-        }
-    })
+    this.field('siteUrl')    
     
     this.field('details', {
         extractor: doc => doc.details?.map(detail => `${detail.label} ${detail.value}`).join(' ')

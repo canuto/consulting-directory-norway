@@ -5,6 +5,8 @@
   "scripts": {
     "clean": "coho dropcollection --collection 'listings' && coho query _kvspacecache --delete",
     "mock": "npm run clean && coho createcollection --collection 'listings' && coho import -f bin/testdata-listings.json -c listings",
+    "screenshot": "coho query listings > build/database-listings.json && node bin/screenshotutil/batch.js build/database-listings.json ~/tmp/screenshots",
+    "uploadscreenshots": "coho file-upload --src ~/tmp/screenshots --target '/screenshots'",
     "setup": "npm run clean && coho createcollection --collection 'listings' && coho import -f build/output.json -c listings",
     "buildsitemap": "node bin/buildsitemap.js",
     "buildindex": "coho query listings > build/database-listings.json && node bin/buildindex.js",
