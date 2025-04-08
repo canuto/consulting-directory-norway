@@ -82,7 +82,7 @@ After the local screenshots have been created, you may upload all to the Codehoo
 npm run uploadscreenshots
 ```
 
-This mau also take some time - refill your cup ☕️.
+This may also take some time - refill your cup ☕️.
 
 ## UI Customization
 
