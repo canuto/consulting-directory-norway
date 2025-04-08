@@ -1,4 +1,5 @@
 # Dependencies
+config.json
 localdev/
 build/
 node_modules/
