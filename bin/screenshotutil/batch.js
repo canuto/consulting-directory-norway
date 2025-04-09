@@ -66,7 +66,7 @@ async function processListingsFile(jsonFilePath) {
                 const page = await browser.newPage();
 
                 // Disable JavaScript and other features we don't need
-                await page.setJavaScriptEnabled(false);
+                await page.setJavaScriptEnabled(true);
 
                 // Block only scripts and unnecessary resources
                 await page.setRequestInterception(true);
@@ -113,7 +113,19 @@ async function processListingsFile(jsonFilePath) {
                     // Ignore errors if no cookie button is found
                 }
 
-                await page.waitForNetworkIdle();
+                console.log('Waiting for network to become idle...');
+                try {
+                    await Promise.race([
+                        page.waitForNetworkIdle(),
+                        new Promise((_, reject) => 
+                            setTimeout(() => reject(new Error('Network idle timeout after 5 seconds')), 5000)
+                        )
+                    ]);
+                    console.log('Network is idle');
+                } catch (error) {
+                    console.log('Warning: Network did not become idle - continuing anyway:', error.message);
+                    // Continue execution instead of failing
+                }
 
                 // Take screenshot
                 await page.screenshot({
