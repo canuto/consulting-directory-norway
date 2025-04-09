@@ -12,7 +12,7 @@ const idx = lunr(function () {
     this.field('content')
     this.field('category')
     this.field('siteUrl')    
-    
+    this.field('companyName')
     this.field('details', {
         extractor: doc => doc.details?.map(detail => `${detail.label} ${detail.value}`).join(' ')
     })
@@ -24,11 +24,11 @@ const idx = lunr(function () {
         showHitsData[doc._id] = {
             title: doc.title,
             siteUrl: doc.siteUrl,
-            altImageUrl: doc.altImageUrl || null,
             content: doc.content,
             category: doc.category,
             categorySlug: doc.categorySlug,
-            slug: doc.slug
+            slug: doc.slug,
+            companyName: doc.companyName
         }
     }, this)
 })

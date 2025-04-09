@@ -132,16 +132,24 @@ app.get('/screenshot', async (req, res) => {
         
       } catch (error) {
         console.error(error)
-        // Create a 1x1 transparent PNG buffer for missing images
-        const missingImageBuffer = Buffer.from([
-            0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D,
-            0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
-            0x08, 0x06, 0x00, 0x00, 0x00, 0x1F, 0x15, 0xC4, 0x89, 0x00, 0x00, 0x00,
-            0x0B, 0x49, 0x44, 0x41, 0x54, 0x08, 0xD7, 0x63, 0xFF, 0xFF, 0xFF, 0x00,
-            0x00, 0x05, 0x00, 0x01, 0xE2, 0xB4, 0x60, 0x2E, 0x00, 0x00, 0x00, 0x00,
-            0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82
-        ]);
-        res.set('content-type', 'image/png');
+        res.set('content-type', 'image/svg+xml');
+        // Create an SVG with "Missing screenshot" text
+        const missingImageBuffer = Buffer.from(`
+            <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+                <rect width="800" height="600" fill="#f5f5f5"/>
+                <text 
+                    x="400" 
+                    y="300" 
+                    font-family="Arial" 
+                    font-size="32" 
+                    fill="#666"
+                    text-anchor="middle" 
+                    dominant-baseline="middle">
+                    Missing screenshot
+                </text>
+            </svg>
+        `);
+        
         res.write(missingImageBuffer, 'buffer');
         res.end();
       }
