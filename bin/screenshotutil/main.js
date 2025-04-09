@@ -66,14 +66,18 @@ async function takeScreenshot(targetUrl) {
 
         console.log('Attempting to navigate to page...');
         const response = await page.goto(targetUrl, {
-            waitUntil: ['networkidle0', 'domcontentloaded', 'load'],  // Wait for multiple events
-            timeout: 30000  // Increased timeout
+            waitUntil: ['networkidle0', 'domcontentloaded', 'load'],
+            timeout: 30000
         }).catch(error => {
             if (error.name === 'TimeoutError') {
                 throw new Error(`Navigation timeout after 30 seconds. This might be due to slow network or server response.`);
             }
             throw error;
         });
+
+        // Add initial render wait
+        console.log('Waiting for initial render...');
+        await page.waitForTimeout(2000);
 
         if (!response) {
             throw new Error('Failed to get page response - the page might not exist');
@@ -84,133 +88,95 @@ async function takeScreenshot(targetUrl) {
         }
         console.log(`Page loaded successfully with status: ${response.status()}`);
 
-        // Try to click common cookie consent buttons
-        console.log('Attempting to handle cookie consent popups...');
-        try {
-            await Promise.race([
-                page.click('button[id*="accept"]'),
-                page.click('button[class*="accept"]'),
-                page.click('button[id*="cookie"]'),
-                page.click('button[class*="cookie"]'),
-                page.click('[aria-label*="accept"]'),
-                page.click('[aria-label*="cookie"]'),
-                new Promise(resolve => setTimeout(resolve, 2000))
-            ]);
-            console.log('Finished cookie consent handling');
-        } catch (e) {
-            console.log('No cookie consent buttons found or interaction failed');
-        }
+        // Force page visibility and remove overlay elements
+        console.log('Ensuring page content visibility...');
+        await page.evaluate(() => {
+            // Force show the body and html
+            document.documentElement.style.display = 'block';
+            document.body.style.display = 'block';
+            document.body.style.visibility = 'visible';
+            document.documentElement.style.visibility = 'visible';
 
-        console.log('Waiting for network to become idle...');
-        try {
-            await Promise.race([
-                page.waitForNetworkIdle(),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Network idle timeout after 5 seconds')), 5000)
-                )
-            ]);
-            console.log('Network is idle');
-        } catch (error) {
-            console.log('Warning: Network did not become idle - continuing anyway:', error.message);
-            // Continue execution instead of failing
-        }
+            // Remove potential overlay elements
+            const removeSelectors = [
+                '[class*="cookie"]',
+                '[class*="popup"]',
+                '[class*="modal"]',
+                '[class*="overlay"]',
+                '[id*="cookie"]',
+                '[id*="popup"]',
+                '[id*="modal"]',
+                '[id*="overlay"]'
+            ];
 
-        // Wait for the page to be properly rendered
-        console.log('Waiting for page content to be ready...');
-        try {
-            // Wait for body to be available
-            await page.waitForSelector('body', { timeout: 5000 });
-            
-            // Wait for any lazy-loaded images
-            await page.evaluate(() => {
-                return new Promise((resolve) => {
-                    let totalImages = document.images.length;
-                    let loadedImages = 0;
-                    
-                    // If there are no images, resolve immediately
-                    if (totalImages === 0) {
-                        resolve();
-                        return;
-                    }
-
-                    // Check each image
-                    Array.from(document.images).forEach((img) => {
-                        if (img.complete) {
-                            loadedImages++;
-                        } else {
-                            img.addEventListener('load', () => {
-                                loadedImages++;
-                                if (loadedImages === totalImages) {
-                                    resolve();
-                                }
-                            });
-                            img.addEventListener('error', () => {
-                                loadedImages++;
-                                if (loadedImages === totalImages) {
-                                    resolve();
-                                }
-                            });
-                        }
-                    });
-
-                    // Fallback timeout after 5 seconds
-                    setTimeout(resolve, 5000);
+            removeSelectors.forEach(selector => {
+                document.querySelectorAll(selector).forEach(element => {
+                    element.remove();
                 });
             });
-        } catch (error) {
-            console.log('Warning: Page content wait failed:', error.message);
-        }
 
-        // Ensure viewport is properly set
-        console.log('Setting up viewport...');
-        const bodyHandle = await page.$('body');
-        const boundingBox = await bodyHandle.boundingBox();
-        await bodyHandle.dispose();
-
-        await page.setViewport({
-            width: 1366,
-            height: Math.min(Math.ceil(boundingBox?.height || 768), 15000),  // Cap at 15000px
-            deviceScaleFactor: 1,
+            // Force all elements to be visible
+            const elements = document.getElementsByTagName('*');
+            for (let element of elements) {
+                const style = window.getComputedStyle(element);
+                if (style.display === 'none' || style.visibility === 'hidden') {
+                    element.style.display = 'block';
+                    element.style.visibility = 'visible';
+                }
+            }
         });
 
-        // Take multiple screenshot attempts if needed
-        console.log('Taking screenshot...');
-        let attempts = 0;
-        const maxAttempts = 3;
-        let lastError = null;
+        // Wait for content to be visible
+        console.log('Waiting for visible content...');
+        try {
+            await page.waitForFunction(() => {
+                const body = document.body;
+                const html = document.documentElement;
+                
+                // Check if body has content
+                const hasContent = body.innerText.length > 0;
+                
+                // Check if body has visible dimensions
+                const hasSize = body.offsetWidth > 0 && body.offsetHeight > 0;
+                
+                // Check if any images are loaded
+                const images = document.images;
+                const hasLoadedImages = Array.from(images).some(img => img.complete);
+                
+                return hasContent && hasSize && hasLoadedImages;
+            }, { timeout: 5000 });
+        } catch (error) {
+            console.log('Warning: Content visibility check failed:', error.message);
+        }
 
-        while (attempts < maxAttempts) {
-            try {
-                attempts++;
-                console.log(`Screenshot attempt ${attempts}/${maxAttempts}`);
-                
-                // Wait a bit before each attempt
-                await page.waitForTimeout(1000);
-                
-                // Take the screenshot
+        // Wait additional time after any cookie handling
+        await page.waitForTimeout(1500);
+
+        console.log('Taking screenshot...');
+        try {
+            // Final render wait before screenshot
+            await page.waitForTimeout(2000);
+            
+            await page.screenshot({
+                path: outputPath,
+                type: 'png',
+                fullPage: true
+            });
+
+            // Verify screenshot
+            const stats = await fs.stat(outputPath);
+            if (stats.size < 1000) {
+                console.log('Warning: Small file size detected, waiting longer and retrying...');
+                await page.waitForTimeout(3000);
                 await page.screenshot({
                     path: outputPath,
                     type: 'png',
-                    fullPage: true,
-                    captureBeyondViewport: true
+                    fullPage: true
                 });
-                
-                // Verify the screenshot isn't empty
-                const stats = await fs.stat(outputPath);
-                if (stats.size < 1000) {  // If file is too small, likely blank
-                    throw new Error('Screenshot appears to be blank');
-                }
-                
-                console.log('Screenshot captured successfully');
-                break;
-            } catch (error) {
-                lastError = error;
-                console.log(`Attempt ${attempts} failed:`, error.message);
-                
-                if (attempts === maxAttempts) {
-                    throw new Error(`Failed to capture screenshot after ${maxAttempts} attempts: ${error.message}`);
-                }
             }
+        } catch (error) {
+            console.error('Screenshot capture failed:', error.message);
+            throw error;
         }
 
         await browser.close();

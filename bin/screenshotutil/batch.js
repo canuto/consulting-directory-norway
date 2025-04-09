@@ -126,7 +126,7 @@ async function processListingsFile(jsonFilePath) {
                     console.log('Warning: Network did not become idle - continuing anyway:', error.message);
                     // Continue execution instead of failing
                 }
-
+                
                 // Take screenshot
                 await page.screenshot({
                     path: outputPath,
