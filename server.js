@@ -72,7 +72,7 @@ app.crudlify({'listings': null}, {prefix: '/api'});
 app.get('/', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const topFeatures = await loadTopFeaturesCached();
-    setCacheHeaders(res);
+    //setCacheHeaders(res);
     res.send(await renderPage('index', {directories, topFeatures, title: settings.title, ingress: settings.ingress, cacheBreaker}));
 });
 

@@ -5,6 +5,7 @@ const url = require('url');
 
 // Get URL from command line argument
 const targetUrl = process.argv[2];
+const screenshotsDir = process.argv[3] || path.join(__dirname, 'screenshots');
 
 if (!targetUrl) {
     console.error('Please provide a URL as an argument');
@@ -25,7 +26,6 @@ async function takeScreenshot(targetUrl) {
     try {
         console.log(`Starting screenshot process for URL: ${targetUrl}`);
         // Create screenshots directory if it doesn't exist
-        const screenshotsDir = path.join(__dirname, 'screenshots');
         await fs.mkdir(screenshotsDir, { recursive: true });
         console.log(`Created/verified screenshots directory at: ${screenshotsDir}`);
 
