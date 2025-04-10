@@ -27,7 +27,7 @@ window.handleSearch = function(query) {
             searchResults.innerHTML = displayedResults
                 .map(result => `
                     <li>
-                        <a href="/${showHitsData[result.ref].categorySlug}/${showHitsData[result.ref].slug}/${result.ref}" class="p-4 hover:bg-base-300">
+                        <a href="/listing/${showHitsData[result.ref].categorySlug}/${showHitsData[result.ref].slug}" class="p-4 hover:bg-base-300">
                             <div class="flex gap-4">
                                 <div class="avatar">
                                     <div class="w-16 h-16 rounded">

@@ -177,7 +177,7 @@ app.get('/all', async (req, res) => {
 });
 
 // load category by slug
-app.get('/:slug', async (req, res) => {
+app.get('/listing/:slug', async (req, res) => {
     const {slug} = req.params;
     const directories = await loadDirectoriesCached();
     const categoryFeatures = await loadCategoryFeaturesCached(slug);    
@@ -185,17 +185,17 @@ app.get('/:slug', async (req, res) => {
 });
 
 // load listing by slug and id
-app.get('/:categorySlug/:slug/:id', async (req, res) => {
-    const {categorySlug, slug, id} = req.params;
+app.get('/listing/:categorySlug/:slug', async (req, res) => {
+    const {categorySlug, slug} = req.params;
     try {
         const directories = await loadDirectoriesCached();
-        const listing = await loadListingByIdCached(id);
+        const listing = await loadListingByIdCached(slug);
         if (!listing) {
-            throw new Error('Listing not found');
+            throw new Error(`Listing not found: ${slug}`);
         }
         res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords, title: settings.title, cacheBreaker}));
     } catch (error) {
-        console.error(`Error loading listing ${id}:`, error);
+        console.error(`Error loading listing ${slug}:`, error);
         res.status(404).send('Listing not found');
     }
 });
@@ -228,4 +228,9 @@ app.static({route: "/", directory: "/web", notFound: "/404.html"}, (_, res, next
 
 
 // bind to serverless runtime
-export default app.init();
+export default app.init(async () => {
+    console.log('app.init');
+    const db = await Datastore.open();
+    // create index for slug
+    db.createIndex('listings', ['slug']);
+});

@@ -1,11 +1,13 @@
 import { Datastore } from 'codehooks-js'
 import handlebars from 'handlebars';
 
+const CACHE_ON = false;
 const ONE_HOUR = 1000*60*60;
 const ONE_MONTH = 1000*60*60*24*30;
 
 // Cache helper
 async function getCached(key, loader, ttl = ONE_HOUR) {
+    if (!CACHE_ON) return await loader();
     const db = await Datastore.open();
     const cached = await db.get(`cache-${key}`, {keyspace: 'cache'});
     
@@ -30,9 +32,9 @@ async function loadCategoryFeatures(categorySlug) {
     return db.getMany('listings', { categorySlug }).toArray();
 }
 
-async function loadListingById(id) {
+async function loadListingById(slug) {
     const db = await Datastore.open();
-    return db.getOne('listings', {_id: id});
+    return db.getOne('listings', {slug});
 }
 
 async function loadDirectories() {
@@ -77,7 +79,7 @@ const loadDirectoriesCached = () => getCached('directories', loadDirectories);
 const loadTopFeaturesCached = () => getCached('topFeatures', loadTopFeatures);
 const loadAllCategoriesCached = () => getCached('allCategories', loadAllCategories);
 const loadCategoryFeaturesCached = (slug) => getCached(`categoryFeatures-${slug}`, () => loadCategoryFeatures(slug));
-const loadListingByIdCached = (id) => getCached(`listing-${id}`, () => loadListingById(id));
+const loadListingByIdCached = (slug) => getCached(`listing-${slug}`, () => loadListingById(slug));
 
 // Generate sitemap XML directly to response
 async function writeSitemapToResponse(res, host) {
