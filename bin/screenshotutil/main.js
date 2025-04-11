@@ -34,7 +34,15 @@ async function takeScreenshot(targetUrl) {
         const pathname = parsedUrl.pathname === '/' ? '' : parsedUrl.pathname;
         const filename = `${parsedUrl.hostname}${pathname.replace(/\//g, '_')}.png`;
         const outputPath = path.join(screenshotsDir, filename);
-
+        // Check if screenshot already exists
+        try {
+            await fs.access(outputPath);
+            console.log(`Screenshot already exists at: ${outputPath}`);
+            process.exit(0);
+        } catch (err) {
+            // File doesn't exist, continue with screenshot
+            console.log(`Screenshot will be saved to: ${outputPath}`);
+        }
         const browser = await puppeteer.launch(puppeteerOptions);
         console.log('Browser launched successfully');
         const page = await browser.newPage();

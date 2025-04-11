@@ -1,9 +1,11 @@
 import { Datastore } from 'codehooks-js'
 import handlebars from 'handlebars';
-
-const CACHE_ON = false;
+import bannerAd from './web/templates/ad1.hbs';
+const CACHE_ON = true;
 const ONE_HOUR = 1000*60*60;
 const ONE_MONTH = 1000*60*60*24*30;
+
+const compiled = handlebars.compile(bannerAd);
 
 // Cache helper
 async function getCached(key, loader, ttl = ONE_HOUR) {
@@ -34,6 +36,7 @@ async function loadCategoryFeatures(categorySlug) {
 
 async function loadListingById(slug) {
     const db = await Datastore.open();
+    console.log('loadListingById', slug);
     return db.getOne('listings', {slug});
 }
 
@@ -122,23 +125,13 @@ async function writeSitemapToResponse(res, host) {
 // Register banner ad helper
 handlebars.registerHelper('bannerAd', function(options) {
     const { link, image, text, linkText } = options.hash;
-    return new handlebars.SafeString(`
-        <div class="card card-side bg-base-200 shadow-sm flex flex-row relative rounded-none">
-            <div class="absolute top-1 right-2 text-xs opacity-50 p-1">AD</div>
-            <figure class="w-24">
-                <img
-                src="${image}"
-                alt="Advertisement"
-                class="h-[120px] object-cover" />
-            </figure>
-            <div class="card-body">
-                <p>${text}</p>
-                <div class="card-actions justify-end">
-                    <a href="${link}" target="_blank" rel="noopener noreferrer">${linkText}</a>
-                </div>
-            </div>
-        </div>
-    `);
+    try {        
+        const adstr = compiled({ link, image, text, linkText });
+        return new handlebars.SafeString(adstr);
+    } catch (err) {
+        console.error('Error compiling banner ad:', err);
+        return '';
+    }
 });
 
 // Register the equals Handlebarshelper
@@ -155,4 +148,4 @@ const setCacheHeaders = (res) => {
 }
 
 // Export the new function along with existing exports
-export { setCacheHeaders, writeSitemapToResponse, loadDirectoriesCached, loadTopFeaturesCached, loadAllCategoriesCached, loadCategoryFeaturesCached, loadListingByIdCached }; 
+export { setCacheHeaders, writeSitemapToResponse, loadDirectoriesCached, loadTopFeaturesCached, loadAllCategoriesCached, loadCategoryFeaturesCached, loadListingByIdCached, loadListingById }; 

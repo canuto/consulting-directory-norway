@@ -20,7 +20,7 @@ import {
     loadTopFeaturesCached, 
     loadAllCategoriesCached, 
     loadCategoryFeaturesCached,
-    loadListingByIdCached,
+    loadListingById,
     writeSitemapToResponse,
     setCacheHeaders
 } from './helpers.js';
@@ -170,7 +170,7 @@ app.get('/about', async (req, res) => {
 });
 
 // load all categories
-app.get('/all', async (req, res) => {
+app.get('/listing/all', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const allCategories = await loadAllCategoriesCached();
     res.send(await renderPage('all', {directories, allCategories, title: settings.title, cacheBreaker}));
@@ -189,7 +189,8 @@ app.get('/listing/:categorySlug/:slug', async (req, res) => {
     const {categorySlug, slug} = req.params;
     try {
         const directories = await loadDirectoriesCached();
-        const listing = await loadListingByIdCached(slug);
+        console.log('loadListingByIdCached', slug, directories.length);
+        const listing = await loadListingById(slug);
         if (!listing) {
             throw new Error(`Listing not found: ${slug}`);
         }
