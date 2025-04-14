@@ -35,8 +35,17 @@ async function loadCategoryFeatures(categorySlug) {
 }
 
 async function loadListingById(slug) {
+    /*return new Promise(async (resolve, reject) => {
+        const db = await Datastore.open();
+        console.log('loadListingById', slug);
+        const listing = await db.getMany('listings', {slug}, {limit: 1}).toArray();
+        if (listing.length > 0) {
+            resolve(listing[0]);
+        } else {
+            reject(new Error('Listing not found'));
+        }
+    });*/
     const db = await Datastore.open();
-    console.log('loadListingById', slug);
     return db.getOne('listings', {slug});
 }
 
@@ -124,9 +133,9 @@ async function writeSitemapToResponse(res, host) {
 
 // Register banner ad helper
 handlebars.registerHelper('bannerAd', function(options) {
-    const { link, image, text, linkText } = options.hash;
+    const { link, image, text, linkText, title  } = options.hash;
     try {        
-        const adstr = compiled({ link, image, text, linkText });
+        const adstr = compiled({ link, image, text, linkText, title });
         return new handlebars.SafeString(adstr);
     } catch (err) {
         console.error('Error compiling banner ad:', err);

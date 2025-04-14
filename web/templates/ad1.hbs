@@ -1,15 +1,18 @@
- <div class="card card-side bg-base-200 shadow-sm flex flex-row relative rounded-none">
-    <div class="absolute top-1 right-2 text-xs opacity-50 p-1">AD</div>
-    <figure class="w-24">
-        <img
-        src="{{image}}"
-        alt="Advertisement"
-        class="h-[120px] object-cover" />
-    </figure>
-    <div class="card-body">
-        <p>{{text}}</p>
-        <div class="card-actions justify-end">
-            <a href="{{link}}" target="_blank" rel="noopener noreferrer">{{linkText}}</a>
+<a href="{{link}}" target="_blank" rel="noopener noreferrer" class="block">
+    <div class="card card-side bg-base-200 shadow-sm flex flex-row relative rounded-none hover:bg-base-300 transition-colors">
+        <div class="absolute top-1 right-2 text-xs opacity-50 p-1">AD</div>
+        <figure class="p-3">
+            <img
+            src="{{image}}"
+            alt="Advertisement"
+            class="h-full w-full object-contain" />
+        </figure>
+        <div class="card-body">
+            <h3 class="card-title">{{title}}</h3>
+            <p>{{text}}</p>
+            <div class="card-actions justify-end">
+                <span>{{linkText}}</span>
+            </div>
         </div>
     </div>
-</div>
+</a>
