@@ -15,8 +15,8 @@ window.handleSearch = function(query) {
     }
 
     try {
-        // AND search: add a plus sign to all words in the query  
-        const plusQuery = query.trim().split(' ').map(word => '+' + word).join(' ');
+        // AND search: add a plus sign and * to all words in the query  
+        const plusQuery = query.trim().split(' ').map(word => '+' + word + '*').join(' ');
         results = idx.search(plusQuery);
         if (results.length === 0) {
             searchResults.innerHTML = '<div class="p-4 text-sm opacity-50">No results found</div>';

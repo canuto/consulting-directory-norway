@@ -1,0 +1,122 @@
+[
+    {
+        "title": "Classic Italian Spaghetti Sauce",
+        "company": "Christina's Cucina",
+        "slug": "classic-italian-spaghetti-sauce",
+        "imageUrl": "https://www.christinascucina.com/wp-content/uploads/2021/04/fullsizeoutput_e5df-768x960.jpeg",
+        "siteUrl": "https://www.christinascucina.com/spaghetti-sauce-easy-italian-recipe-with-6-ingredients/",
+        "content": "Authentic Italian spaghetti sauce made with just 6 ingredients.",
+        "category": "Main Dishes",
+        "categorySlug": "main-dishes",
+        "directory": "sauces",
+        "publishDate": "2024-03-20",
+        "seoKeywords": ["Italian", "Pasta", "Sauce", "Spaghetti", "Tomato"],
+        "details": [
+            { "label": "Extra Virgin Olive Oil", "value": "4 tablespoons" },
+            { "label": "Garlic", "value": "3 cloves, fresh" },
+            { "label": "Italian Parsley", "value": "1 tablespoon, fresh chopped" },
+            { "label": "Ground Beef", "value": "8 oz grass fed" },
+            { "label": "Tomato Puree", "value": "28 oz Italian jarred" },
+            { "label": "Fresh Basil", "value": "10 leaves" }
+        ],
+        "ingress": "A simple and authentic Italian spaghetti sauce recipe that proves less is more. Made with high-quality ingredients and no added sugar, this sauce will change how you think about pasta sauce forever.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
+        "title": "Julia Child's Roast Chicken",
+        "company": "Food & Wine",
+        "slug": "julia-child-roast-chicken",
+        "imageUrl": "https://www.foodandwine.com/thmb/4gWRo0Xl7O5RKBPzXNkPZGG8A3M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-roast-chicken-FT-RECIPE0422-99327c963e4b4c1891e3a62e1d8d322d.jpg",
+        "siteUrl": "https://www.foodandwine.com/recipes/julia-child-roast-chicken",
+        "content": "The perfect roast chicken recipe from the legendary Julia Child.",
+        "category": "Main Dishes",
+        "categorySlug": "main-dishes",
+        "directory": "poultry",
+        "publishDate": "2024-03-19",
+        "seoKeywords": ["Chicken", "Roast", "Julia Child", "Classic", "French"],
+        "details": [
+            { "label": "Whole Chicken", "value": "3-4 pounds" },
+            { "label": "Butter", "value": "2 tablespoons, softened" },
+            { "label": "Salt", "value": "1 teaspoon" },
+            { "label": "Black Pepper", "value": "1/4 teaspoon" },
+            { "label": "Lemon", "value": "1, halved" },
+            { "label": "Fresh Herbs", "value": "Thyme, rosemary, sage" }
+        ],
+        "ingress": "Julia Child's classic roast chicken recipe is a lesson in simplicity and technique, yielding a flavorful, perfectly cooked bird you'll want to make again and again.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
+        "title": "Classic French Baguette",
+        "company": "Le Boulanger",
+        "slug": "classic-french-baguette",
+        "imageUrl": "https://placehold.co/400x300?text=FrenchBaguette",
+        "siteUrl": "https://example.com/recipes/baguette",
+        "content": "Traditional French baguette with crispy crust and chewy interior.",
+        "category": "Breads",
+        "categorySlug": "breads",
+        "directory": "baking",
+        "publishDate": "2024-03-18",
+        "seoKeywords": ["Bread", "French", "Baguette", "Baking", "Classic"],
+        "details": [
+            { "label": "Bread Flour", "value": "500g" },
+            { "label": "Water", "value": "350ml, lukewarm" },
+            { "label": "Salt", "value": "10g" },
+            { "label": "Active Dry Yeast", "value": "7g" },
+            { "label": "Rising Time", "value": "3-4 hours" },
+            { "label": "Baking Temperature", "value": "230°C (450°F)" }
+        ],
+        "ingress": "Master the art of French baguette making with this traditional recipe that yields crusty, golden-brown loaves with a perfect crumb structure.",
+        "topFeature": false,
+        "categoryFeature": true
+    },
+    {
+        "title": "Classic Bolognese Sauce",
+        "company": "Dal Bolognese",
+        "slug": "classic-bolognese-sauce",
+        "imageUrl": "https://placehold.co/400x300?text=BologneseSauce",
+        "siteUrl": "https://roma.dalbolognese.it/ricetta-ragu-bolognese/",
+        "content": "Traditional Italian meat sauce from Bologna.",
+        "category": "Sauces",
+        "categorySlug": "sauces",
+        "directory": "italian",
+        "publishDate": "2024-03-17",
+        "seoKeywords": ["Italian", "Bolognese", "Sauce", "Pasta", "Traditional"],
+        "details": [
+            { "label": "Ground Meat", "value": "Mix of beef and pork" },
+            { "label": "Soffritto", "value": "Carrots, celery, onions" },
+            { "label": "Tomato Sauce", "value": "400g" },
+            { "label": "Red Wine", "value": "1 cup" },
+            { "label": "Cooking Time", "value": "Minimum 2 hours" },
+            { "label": "Special Equipment", "value": "Terracotta pot" }
+        ],
+        "ingress": "The authentic Bolognese sauce recipe from Bologna, Italy. A rich meat sauce that requires patience and quality ingredients for the perfect result.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
+        "title": "French Rolled Omelet",
+        "company": "Food & Wine",
+        "slug": "french-rolled-omelet",
+        "imageUrl": "https://placehold.co/400x300?text=RolledOmelet",
+        "siteUrl": "https://www.foodandwine.com/recipes/french-rolled-omelet",
+        "content": "Perfect French-style rolled omelet with herbs.",
+        "category": "Breakfast",
+        "categorySlug": "breakfast",
+        "directory": "eggs",
+        "publishDate": "2024-03-16",
+        "seoKeywords": ["Eggs", "French", "Omelet", "Breakfast", "Classic"],
+        "details": [
+            { "label": "Eggs", "value": "3 large" },
+            { "label": "Butter", "value": "1 tablespoon" },
+            { "label": "Salt", "value": "To taste" },
+            { "label": "Black Pepper", "value": "Freshly ground" },
+            { "label": "Fresh Herbs", "value": "Chives or parsley" },
+            { "label": "Cooking Time", "value": "2-3 minutes" }
+        ],
+        "ingress": "A perfectly executed French rolled omelet is a testament to technique. This classic breakfast dish is creamy on the inside with a delicate exterior.",
+        "topFeature": false,
+        "categoryFeature": true
+    }
+] 
