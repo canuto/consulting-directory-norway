@@ -1,0 +1,618 @@
+[
+    {
+        "title": "Ilder",
+        "companyName": "Ilder",
+        "slug": "ilder",
+        "altImageUrl": "",
+        "siteUrl": "https://www.ilder.no/",
+        "content": "Ilder AS er ei teknologi- og konsulentbedrift med kontor i Bergen, Stord og Fauske.",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.ilder.no/"
+            }
+        ],
+        "ingress": "Ilder har eit team med brei kompetanse innan design, brukaroppleving, utvikling, DevOps, IT-tryggleik og prosjektleiing.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Savvy",
+        "companyName": "Savvy",
+        "slug": "savvy",
+        "altImageUrl": "",
+        "siteUrl": "https://savvy.no/",
+        "content": "Savvy er grunnlagt av erfarne konsulenter med en ambisjon om å skape et selskap med pålitelige og engasjerte mennesker som drives av å skape de beste løsningene. ",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://savvy.no/"
+            }
+        ],
+        "ingress": "Vi er kompetente utviklere som verdsetter kunnskapsdeling for å maksimere kundenes nytte av vår ekspertise. Teknologi er vår spesialitet, men vi vet at det er mennesker som er kjerneelementet. Vi ser på teknologi som et verktøy for å skape verdifulle tiltak og effektivitet",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Sonat",
+        "companyName": "Sonat",
+        "slug": "sonat",
+        "altImageUrl": "",
+        "siteUrl": "https://sonat.no/",
+        "content": "Vi løser utfordringer. Teknologi er vårt verktøy!",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://sonat.no/"
+            }
+        ],
+        "ingress": "Vi i Sonat er opptatt av å utvikle oss, teknologi er vår ekspertise og der er vi naturlig nysgjerrig på nyutvikling. Men teknologi er ikke verdi alene, mennesket er viktigst, teknologi skal være vårt verktøy, hvor løsningene skal skape verdi og effektivisering. Dette kan være krevende, derfor er vi opptatt av prosessen og mennesket, vi skal være rustet til å levere virkelig verdi.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Apility",
+        "companyName": "Apility",
+        "slug": "apility",
+        "altImageUrl": "",
+        "siteUrl": "https://www.apility.no/",
+        "content": "Vi bygger digitale økosystemer, nettsider, apper og smarte arbeidsverktøy.",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.apility.no/"
+            }
+        ],
+        "ingress": "Hos Apility er vi eksperter på å levere teknologiske løsninger som gjør en forskjell. Vårt team av utviklere, designere og rådgivere jobber tett sammen for å hjelpe din bedrift å vokse og tilpasse seg en digital verden. Vi fokuserer på å forstå dine behov og levere resultater som skaper verdi.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Visito",
+        "companyName": "Visito",
+        "slug": "visito",
+        "altImageUrl": "",
+        "siteUrl": "https://visito.no/",
+        "content": "Med allsidighet, smil og hel ved i sekken, drives vi i Visito av å lage solide og smarte IT-løsninger. Av og for hyggelige folk.",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://visito.no/"
+            }
+        ],
+        "ingress": "Vi er et verdidrevet teknologiselskap med fagnerder og lokal profil. Mangfold betyr noe. I tjenester, kunnskap og mennesker.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
+        "title": "Knowit Experience",
+        "companyName": "Knowit",
+        "slug": "knowit",
+        "altImageUrl": "",
+        "siteUrl": "https://www.knowit.no/",
+        "content": "Som Nordens største digitale byrå har Knowit Experience ekspertise som strekker seg fra merkevarebygging og design til datadrevne e-handelsplattformer. Det betyr at vi hjelper våre kunder med å flytte merkevarene sine og skape unike kundeopplevelser.",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.knowit.no/"
+            }
+        ],
+        "ingress": "For å forme en ny digital fremtid, trenger man et helt eget sett med digital kunnskap. Vi har den kunnskapen. I Knowit jobber vi tverrfaglig for å skape et bærekraftig og humant samfunn. Velkommen til vår verden.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Sopra Steria",
+        "companyName": "Sopra Steria",
+        "slug": "soprasteria",
+        "altImageUrl": "",
+        "siteUrl": "https://www.soprasteria.no/",
+        "content": "Sopra Steria er Norges ledende konsulentselskap innen digitalisering, innovasjon og bærekraft",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.soprasteria.no/"
+            }
+        ],
+        "ingress": "",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Cure",
+        "companyName": "Cure",
+        "slug": "cure",
+        "altImageUrl": "",
+        "siteUrl": "https://cure.no/",
+        "content": "Digitale løsninger som gir deg resultater",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://cure.no/"
+            }
+        ],
+        "ingress": "Sammen setter vi oss inn i dine behov og skaper løsninger som fungerer. Med smarte metoder, fast pris og kvalitet som skaper verdi.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
+        "title": "Webstep",
+        "companyName": "Webstep",
+        "slug": "webstep",
+        "altImageUrl": "",
+        "siteUrl": "https://www.webstep.no/",
+        "content": "Webstep utvikler morgendagen i samspill mellom mennesker og teknologi.",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.webstep.no/"
+            }
+        ],
+        "ingress": "Webstep er et teknologi- og rådgivningsselskap. Vi utvikler morgendagen i samspill mellom mennesker og teknologi.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Bouvet",
+        "companyName": "Bouvet",
+        "slug": "bouvet",
+        "altImageUrl": "",
+        "siteUrl": "https://www.bouvet.no/",
+        "content": "Vi går foran og bygger fremtidens samfunn",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.bouvet.no/"
+            }
+        ],
+        "ingress": "Bouvet er et ledende konsulentselskap innen IT og digital kommunikasjon. Vår årelange erfaring, nærhet til kundene og brede kompetanse gjør oss til en svært ettertraktet digitaliseringspartner for både private og offentlige aktører.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Kraftlauget",
+        "companyName": "Kraftlauget",
+        "slug": "kraftlauget",
+        "altImageUrl": "",
+        "siteUrl": "https://www.kraftlauget.no/",
+        "content": "Vi leverer design, teknologi og rådgivning",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.kraftlauget.no/"
+            }
+        ],
+        "ingress": "Med dei beste fagfolka innan design, teknologi og rådgivning er vi den rette gjengen for å innovere, fremje opplevingar og lage applikasjonar, produkt og tenester som utgjer ein forskjell for folk og klode.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Tre",
+        "companyName": "Tre Bergen",
+        "slug": "tre-bergen",
+        "altImageUrl": "",
+        "siteUrl": "https://www.trebergen.no/",
+        "content": "Vi skaper og forbedrer med design og kode",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.trebergen.no/"
+            }
+        ],
+        "ingress": "Tre er et av de eldste design- og teknologibyråene i Bergen. Vi startet som Netlife Bergen i 2014, og byttet navn til Tre i 2024.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Miles",
+        "companyName": "Miles",
+        "slug": "miles",
+        "altImageUrl": "",
+        "siteUrl": "https://www.miles.no/",
+        "content": "Vi elsker å løse utfordringer!",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.miles.no/"
+            }
+        ],
+        "ingress": "Vi er et verdidrevet konsulentselskap med lidenskap for teknologi, mennesker og veien mot de gode løsningene for våre kunder.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Sjølvsagt",
+        "companyName": "Sjølvsagt",
+        "slug": "sjolvsagt",
+        "altImageUrl": "",
+        "siteUrl": "https://www.sjolvsagt.no/",
+        "content": "Digitale eksperter som hjelper deg nå dine mål!",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.sjolvsagt.no/"
+            }
+        ],
+        "ingress": "I Sjølvsagt! brenner vi for å levere gode resultater. Våre seniorutviklere, arkitekter og løsningsspesialister er mestre i sine fagfelt, og bidrar til at du når dine mål! ",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Variant",
+        "companyName": "Variant",
+        "slug": "variant",
+        "altImageUrl": "",
+        "siteUrl": "https://www.variant.no/",
+        "content": "Konsulenter som bryr seg om fag",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.variant.no/"
+            }
+        ],
+        "ingress": "Vi står for samarbeid og forståelse med åpenhet, raushet og stor læreglede",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Shortcut",
+        "companyName": "Shortcut",
+        "slug": "shortcut",
+        "altImageUrl": "",
+        "siteUrl": "https://www.shortcut.io/",
+        "content": "We make apps for life",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.shortcut.io/"
+            }
+        ],
+        "ingress": "App Development Agency Let’s make magic happen and craft an app you’ll love. Tell us about your project.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Heisenbug",
+        "companyName": "Heisenbug",
+        "slug": "heisenbug",
+        "altImageUrl": "",
+        "siteUrl": "https://heisenbug.no/en",
+        "content": "Heisenbug® designs and engineers engaging digital products that people love to use.",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://heisenbug.no/en"
+            }
+        ],
+        "ingress": "Heisenbug® is an award-winning design and technology company that creates digital solutions to simplify, renew, and enhance user experience. Our team, comprised of skilled developers, UX/UI designers, and strategists, is dedicated to delivering robust, scalable, and secure solutions.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Ulriken",
+        "companyName": "Ulriken",
+        "slug": "uc",
+        "altImageUrl": "",
+        "siteUrl": "https://uc.no/",
+        "content": "Vi er IT-konsulenter",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://uc.no/"
+            }
+        ],
+        "ingress": "Vi har solid kompetanse, god erfaring og utfører godt håndverk. Nå ser vi etter flere utviklere som har lyst å utvikle selskapet sammen med oss. Ulriken er 100% eid av de ansatte og holder til i Bergen.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Solea",
+        "companyName": "Solea",
+        "slug": "solea",
+        "altImageUrl": "",
+        "siteUrl": "https://www.solea.no/",
+        "content": "Verden drives fremover av gode ideer, vårt bidrag er teknologi.",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.solea.no/"
+            }
+        ],
+        "ingress": "Vi er IT-nerder og teknologihoder med et solid utviklermiljø som tilbyr tjenester og produkter for å realisere dine ideer. Selskapet er kjent for sin høye kvalitet på leveranser, faglige dyktighet og førsteklasses kundeservice i offentlig og privat sektor. Vi har kompetanse på ulike områder, som utviklere, UX, QA og testledelse, innsikt, prosjektledere og forretningsutviklere.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Simmer",
+        "companyName": "Simmer",
+        "slug": "simmer",
+        "altImageUrl": "",
+        "siteUrl": "https://www.simmer.no/en",
+        "content": "Scandinavian branding agency. Branding, design and digital, simmered to perfection.",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.simmer.no/en"
+            }
+        ],
+        "ingress": "Through brand design, digital solutions and marketing, we create unique experiences, challenge the ordinary and elevate good to outstanding.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "MHB",
+        "companyName": "Mediehuset Bergen AS",
+        "slug": "mhb",
+        "altImageUrl": "",
+        "siteUrl": "https://mhb.no/",
+        "content": "Vi skaper visuelle opplevelser, for ambisiøse merkevarer",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://mhb.no/"
+            }
+        ],
+        "ingress": "",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Link Utvikling",
+        "companyName": "Link Utvikling",
+        "slug": "linkutvikling",
+        "altImageUrl": "",
+        "siteUrl": "https://www.linkutvikling.no/",
+        "content": "Vi utvikler sikre, skalerbare, og brukervennlige apper og nettsider. Vi skriver ikke bare kode, vi bygger bro mellom idéer og teknologi.",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.linkutvikling.no/"
+            }
+        ],
+        "ingress": "Navnet vårt er inspirert av å være linken mellom deg og markedet... Eller er det inspirert av hovedkarakteren i videospillet 'The Legend of Zelda'? De som vet, de vet.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Nordlo",
+        "companyName": "Nordlo",
+        "slug": "nordlo",
+        "altImageUrl": "",
+        "siteUrl": "https://nordlo.com/no/tjenester",
+        "content": "Forbedre virksomheten med de rette IT-løsningene",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://nordlo.com/no/tjenester"
+            }
+        ],
+        "ingress": "Vi er Nordlo - en nordisk IT- og digitaliseringspartner som bistår bedrifter og organisasjoner med å styrke sine IT-miljøer gjennom skalerbare it-tjenester, tilpasset både virksomhetens og de ansattes behov.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Funbit",
+        "companyName": "Funbit",
+        "slug": "funbit",
+        "altImageUrl": "",
+        "siteUrl": "https://funbit.no/",
+        "content": "Vi hjelper nye og etablerte bedrifter med å styrke sin digitale tilstedeværelse",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://funbit.no/"
+            }
+        ],
+        "ingress": "Ved å programmere og lage systemer fra bunnen av kan vi skreddersy og tilpasse løsningene til ulike bransjer, ønsker og behov. Vi kombinerer vår tekniske ekspertise med kreativ tenkning for å skape brukervennlige, funksjonelle og estetisk tiltalende digitale produkter. Enten det er en nettside, en mobilapp eller et komplekst system, er vi klare til å ta utfordringen og realisere dine visjoner.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Apphuset",
+        "companyName": "Apphuset",
+        "slug": "apphuset",
+        "altImageUrl": "",
+        "siteUrl": "https://www.apphuset.no/",
+        "content": "Digital innovasjon & evolusjon",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.apphuset.no/"
+            }
+        ],
+        "ingress": "Vi er en erfaren digital utviklingspartner som leverer ende-til-ende design og utviklingsteam for enterprise, SMB og scaleup.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Oktett",
+        "companyName": "Oktett",
+        "slug": "oktett",
+        "altImageUrl": "",
+        "siteUrl": "https://oktett.no/",
+        "content": "Your Software Development Partner",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://oktett.no/"
+            }
+        ],
+        "ingress": "",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Skavl Media",
+        "companyName": "Skavl Media",
+        "slug": "skavlmedia",
+        "altImageUrl": "",
+        "siteUrl": "https://www.skavlmedia.no/",
+        "content": "Vi bygger nisjemedier",
+        "category": "Agency",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.skavlmedia.no/"
+            }
+        ],
+        "ingress": "I tiår har vi utviklet mediebedrifter. Fra lokal- og regionaviser via business-medier og magasiner til 'creators'. Vi har teknologien og verktøykassen som gjør at ambisiøse innholdsskapere kan lykkes.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Codelab",
+        "companyName": "Codelab Bergen AS",
+        "slug": "codelab",
+        "altImageUrl": "",
+        "siteUrl": "https://www.codelab.no/",
+        "content": "Developing Innovative Ideas",
+        "category": "Consulting",
+        "categorySlug": "consulting",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Website",
+                "value": "https://www.codelab.no/"
+            }
+        ],
+        "ingress": "Our main service is software development with specialities in machine learning, sensor development, hydro acoustics, machine vision and web app development. We will always support our clients in all phases of a development project.",
+        "topFeature": false,
+        "categoryFeature": false
+    }
+]
