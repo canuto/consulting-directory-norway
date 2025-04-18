@@ -1,7 +1,7 @@
 const settings = {
-	"title": "Dev tools",
+	"title": "Bergen Digital",
 	"ingress": `		
-		Welcome to the Dev tools directory - your curated collection of the best dev tools online.		
+		Bergen Digital er en katalog med leverandører av digitale tjenester i Bergen. Vi har samlet selskaper med 4 eller flere ansatte i Bergen som kan bistå med implementering av digitale løsninger (systemutvikling, apper, nettsider). 
 	`
 }
 export default settings;

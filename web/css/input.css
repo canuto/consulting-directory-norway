@@ -1,6 +1,7 @@
-@import "tailwindcss" source(none);
+@import 'tailwindcss' source(none);
 @source "../templates/*.{hbs,html,js}";
 @plugin "daisyui";
 @plugin "daisyui" {
-    themes: light --default, dark, night;
+  themes: light --default, dark, night;
 }
+@plugin "@tailwindcss/typography";

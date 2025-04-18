@@ -1,95 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="{{keywords}}">
-  <title>{{title}}</title>
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" /> -->
-  <script src="https://unpkg.com/lunr/lunr.js" defer></script>
-  <script src="/js/mybundle.js?cachebrk={{cacheBreaker}}" defer></script>
-  <link href="/css/mystyles.css?cachebrk={{cacheBreaker}}" rel="stylesheet" type="text/css" />
-  
-</head>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='keywords' content='{{keywords}}' />
+    <title>{{title}}</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" /> -->
+    <script src='https://unpkg.com/lunr/lunr.js' defer></script>
+    <script src='/js/mybundle.js?cachebrk={{cacheBreaker}}' defer></script>
+    <link
+      href='/css/mystyles.css?cachebrk={{cacheBreaker}}'
+      rel='stylesheet'
+      type='text/css'
+    />
 
-<body>
-  <div class="min-h-screen flex flex-col">
-    <!-- Navbar -->
-    <nav class="bg-base-100 shadow-lg">
-      <div class="container mx-auto px-4">
-        <div class="navbar">
-          <div class="navbar-start">
-            <a class="btn text-xl" href="/">            
-              <span class="lg:hidden">/</span>
-              <span class="hidden lg:inline">{{title}}</span>
-            </a>
-          </div>
-          <div class="navbar-center lg:flex">
-            <div class="w-full lg:min-w-[500px] lg:flex">
-              <div class="dropdown w-full">
-                <label class="input w-full">
-                  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-                  <input 
-                    role="button"
-                    type="search" 
-                    class="grow" 
-                    placeholder="Search tools" 
-                    id="search-input"
-                    oninput="handleSearch(this.value)"
-                  />
-                  <kbd class="kbd kbd-sm">⌘</kbd>
-                  <kbd class="kbd kbd-sm">K</kbd>
-                </label>
-                <ul id="search-results" class="menu dropdown-content bg-base-100 rounded-box z-1 p-2 shadow-sm hidden"></ul>
-              </div>
+  </head>
+
+  <body>
+    <div class='min-h-screen flex flex-col'>
+      <!-- Navbar -->
+      <nav class='bg-base-100 shadow-lg'>
+        <div class='container mx-auto px-4'>
+          <div class='navbar'>
+            <div class='navbar-start'>
+              <a class='btn text-xl' href='/'>
+                <span class='lg:hidden'>/</span>
+                <span class='hidden lg:inline'>{{title}}</span>
+              </a>
             </div>
+            <div class='navbar-center lg:flex'>
+              <div class='w-full lg:min-w-[500px] lg:flex'>
+                <div class='dropdown w-full'>
+                  <label class='input w-full'>
+                    <svg
+                      class='h-[1em] opacity-50'
+                      xmlns='http://www.w3.org/2000/svg'
+                      viewBox='0 0 24 24'
+                    ><g
+                        stroke-linejoin='round'
+                        stroke-linecap='round'
+                        stroke-width='2.5'
+                        fill='none'
+                        stroke='currentColor'
+                      ><circle cx='11' cy='11' r='8'></circle><path
+                          d='m21 21-4.3-4.3'
+                        ></path></g></svg>
+                    <input
+                      role='button'
+                      type='search'
+                      class='grow'
+                      placeholder='Finn tjenesteleverandører'
+                      id='search-input'
+                      oninput='handleSearch(this.value)'
+                    />
+                    <kbd class='kbd kbd-sm'>⌘</kbd>
+                    <kbd class='kbd kbd-sm'>K</kbd>
+                  </label>
+                  <ul
+                    id='search-results'
+                    class='menu dropdown-content bg-base-100 rounded-box z-1 p-2 shadow-sm hidden'
+                  ></ul>
+                </div>
+              </div>
 
+            </div>
+            <div class='navbar-end'>
+              <ul class='menu menu-horizontal px-1 hidden lg:flex'>
+                <li><a href='/about' class='font-medium'>Om</a></li>
+              </ul>
+            </div>
           </div>
-          <div class="navbar-end">
-            <ul class="menu menu-horizontal px-1 hidden lg:flex">
-              <li><a href="/about" class="font-medium">About</a></li>              
-            </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class='flex-grow p-2 lg:p-2'>
+        <div class='grid grid-cols-1 lg:grid-cols-12 gap-2'>
+          <!-- Left Sidebar -->
+          <div class='hidden lg:block lg:col-span-3'>
+            <div class='menu w-full rounded-box bg-base-200'>
+              <ul>
+                {{#each directories}}
+                  <li>
+                    <a href='/listing/{{categorySlug}}'>{{name}}
+                      <div class='badge badge-sm'>{{count}}</div></a>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class='lg:col-span-9'>
+            {{#block 'main'}}{{/block}}
           </div>
         </div>
-      </div>
-    </nav>
+      </main>
 
-    <!-- Main Content -->
-    <main class="flex-grow p-2 lg:p-2">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-2">
-        <!-- Left Sidebar -->
-        <div class="hidden lg:block lg:col-span-3">
-          <div class="menu w-full rounded-box bg-base-200">
-            <ul>
-              {{#each directories}}
-              <li>
-                  <a href="/listing/{{categorySlug}}">{{name}} <div class="badge badge-sm">{{count}}</div></a>
-              </li>
-              {{/each}}
-            </ul>
+      <!-- Footer -->
+      <footer class='footer footer-center p-10 text-base-content'>
+        <div>
+          <div class='mt-4'>
+            <p>Copyright © 2025 - All rights reserved</p>
+            <p class='mt-2'>Powered by a
+              <a
+                href='https://codehooks.io'
+                class='link link-primary'
+              >Codehooks.io</a>
+              <a
+                href='https://github.com/RestDB/directory-template/tree/main'
+                class='link link-primary'
+              >directory template</a></p>
           </div>
         </div>
-
-        <!-- Main Content Area -->
-        <div class="lg:col-span-9">
-          {{#block "main"}}
-          {{/block}}
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer footer-center p-10 text-base-content">
-      <div>        
-        <div class="mt-4">
-          <p>Copyright © 2025 - All rights reserved</p>
-          <p class="mt-2">Powered by a <a href="https://codehooks.io" class="link link-primary">Codehooks.io</a> <a href="https://github.com/RestDB/directory-template/tree/main" class="link link-primary">directory template</a></p>
-        </div>
-      </div>
-    </footer>
-  </div>  
-</body>
+      </footer>
+    </div>
+  </body>
 
 </html>
