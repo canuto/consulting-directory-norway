@@ -2,37 +2,33 @@
 {{#content "main"}}
 <div class="hero min-h-[50vh] items-start pt-8">
     <div class="hero-content text-center">
-        <div class="max-w-[800px] mx-auto">
+        <div class="max-w-[800px] mx-auto relative">
+            <span class="absolute top-2 right-2 badge badge-ghost">{{listing.category}}</span> 
             <h1 class="text-5xl font-bold">{{listing.title}}</h1>
             {{#unless (eq listing.companyName listing.title)}}
             <p class="py-6 text-xl text-base-content/70">by {{listing.companyName}}</p>
             {{/unless}}
-            <div class="card bg-base-100 w-full lg:max-w-[740px] lg:mx-0 mt-4">
+            
+            <div class="card bg-base-100 w-full lg:max-w-[740px] lg:mx-0 mt-4 relative">
                 <figure class="px-4 pt-4">
-                    <img src="{{#if listing.altImageUrl}}{{listing.altImageUrl}}?cachebrk={{../cacheBreaker}}{{else}}/screenshot?url={{listing.siteUrl}}&cachebrk={{../cacheBreaker}}{{/if}}" alt="{{listing.title}}" class="rounded-xl w-full">                    
+                    <img src="{{#if listing.altImageUrl}}{{listing.altImageUrl}}?cachebrk={{../cacheBreaker}}{{else}}/screenshot?url={{listing.siteUrl}}&cachebrk={{../cacheBreaker}}{{/if}}" alt="{{listing.title}}" class="rounded-xl w-full">
                 </figure>
 
-                <div class="card-body text-left">                    
+                <div class="card-body text-left">                   
                     {{#if listing.ingress}}
-                    <div class="prose max-w-none text-lg font-medium leading-relaxed">
-                        {{{listing.ingress}}}
-                    </div>
-                    {{/if}}
-                    {{#if listing.content}}
-                    <div class="prose max-w-none">
-                        {{{listing.content}}}
+                    <div class="prose mt-6">
+                        <blockquote>{{{listing.ingress}}}</blockquote>
                     </div>
                     {{/if}}
                     
-
                     <div class="mt-6">
-                        <h2 class="text-xl font-semibold mb-4">Details</h2>
+                        <h2 class="text-xl font-semibold mb-4">Mer informasjon</h2>
                         <dl class="grid gap-4">
                             {{#each listing.details}}
                             <div class="grid grid-cols-2">
                                 <dt class="font-medium">{{label}}</dt>
                                 <dd>
-                                    {{#if (eq label "Website")}}
+                                    {{#if (eq label "Nettsted")}}
                                     <a href="{{value}}" class="link link-primary" target="_blank"
                                         rel="noopener noreferrer">{{value}}</a>
                                     {{else}}

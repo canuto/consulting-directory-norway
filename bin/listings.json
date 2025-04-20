@@ -1,5 +1,49 @@
 [
     {
+        "title": "Visito",
+        "companyName": "Visito",
+        "slug": "visito",
+        "altImageUrl": "",
+        "siteUrl": "https://visito.no",
+        "content": "Med allsidighet, smil og hel ved i sekken, drives vi i Visito av å lage solide og smarte IT-løsninger. Av og for hyggelige folk.",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://visito.no"
+            }
+        ],
+        "ingress": "Vi er et verdidrevet teknologiselskap med fagnerder og lokal profil. Mangfold betyr noe. I tjenester, kunnskap og mennesker.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
+        "title": "Cure",
+        "companyName": "Cure",
+        "slug": "cure",
+        "altImageUrl": "",
+        "siteUrl": "https://cure.no",
+        "content": "Digitale løsninger som gir deg resultater",
+        "category": "Byrå",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://cure.no"
+            }
+        ],
+        "ingress": "Sammen setter vi oss inn i dine behov og skaper løsninger som fungerer. Med smarte metoder, fast pris og kvalitet som skaper verdi.",
+        "topFeature": true,
+        "categoryFeature": true
+    },
+    {
         "title": "Ilder",
         "companyName": "Ilder",
         "slug": "ilder",
@@ -13,7 +57,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.ilder.no"
             }
         ],
@@ -35,7 +79,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://savvy.no"
             }
         ],
@@ -57,7 +101,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://sonat.no"
             }
         ],
@@ -79,35 +123,13 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.apility.no"
             }
         ],
         "ingress": "Hos Apility er vi eksperter på å levere teknologiske løsninger som gjør en forskjell. Vårt team av utviklere, designere og rådgivere jobber tett sammen for å hjelpe din bedrift å vokse og tilpasse seg en digital verden. Vi fokuserer på å forstå dine behov og levere resultater som skaper verdi.",
         "topFeature": false,
         "categoryFeature": false
-    },
-    {
-        "title": "Visito",
-        "companyName": "Visito",
-        "slug": "visito",
-        "altImageUrl": "",
-        "siteUrl": "https://visito.no",
-        "content": "Med allsidighet, smil og hel ved i sekken, drives vi i Visito av å lage solide og smarte IT-løsninger. Av og for hyggelige folk.",
-        "category": "Konsulentselskap",
-        "categorySlug": "konsulentselskap",
-        "directory": "consulting",
-        "publishDate": "2025-04-16",
-        "seoKeywords": [],
-        "details": [
-            {
-                "label": "Website",
-                "value": "https://visito.no"
-            }
-        ],
-        "ingress": "Vi er et verdidrevet teknologiselskap med fagnerder og lokal profil. Mangfold betyr noe. I tjenester, kunnskap og mennesker.",
-        "topFeature": true,
-        "categoryFeature": true
     },
     {
         "title": "Knowit Experience",
@@ -123,7 +145,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.knowit.no"
             }
         ],
@@ -145,35 +167,13 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.soprasteria.no"
             }
         ],
         "ingress": "",
         "topFeature": false,
         "categoryFeature": false
-    },
-    {
-        "title": "Cure",
-        "companyName": "Cure",
-        "slug": "cure",
-        "altImageUrl": "",
-        "siteUrl": "https://cure.no",
-        "content": "Digitale løsninger som gir deg resultater",
-        "category": "Byrå",
-        "categorySlug": "agency",
-        "directory": "consulting",
-        "publishDate": "2025-04-16",
-        "seoKeywords": [],
-        "details": [
-            {
-                "label": "Website",
-                "value": "https://cure.no"
-            }
-        ],
-        "ingress": "Sammen setter vi oss inn i dine behov og skaper løsninger som fungerer. Med smarte metoder, fast pris og kvalitet som skaper verdi.",
-        "topFeature": true,
-        "categoryFeature": true
     },
     {
         "title": "Webstep",
@@ -189,7 +189,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.webstep.no"
             }
         ],
@@ -211,7 +211,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.bouvet.no"
             }
         ],
@@ -233,7 +233,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.kraftlauget.no"
             }
         ],
@@ -255,7 +255,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.trebergen.no"
             }
         ],
@@ -277,7 +277,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.miles.no"
             }
         ],
@@ -299,7 +299,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.sjolvsagt.no"
             }
         ],
@@ -321,7 +321,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.variant.no"
             }
         ],
@@ -343,7 +343,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.shortcut.io"
             }
         ],
@@ -356,7 +356,7 @@
         "companyName": "Heisenbug",
         "slug": "heisenbug",
         "altImageUrl": "",
-        "siteUrl": "https://heisenbug.no/en",
+        "siteUrl": "https://heisenbug.no",
         "content": "Heisenbug® designs and engineers engaging digital products that people love to use.",
         "category": "Byrå",
         "categorySlug": "agency",
@@ -365,8 +365,8 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
-                "value": "https://heisenbug.no/en"
+                "label": "Nettsted",
+                "value": "https://heisenbug.no"
             }
         ],
         "ingress": "Heisenbug® is an award-winning design and technology company that creates digital solutions to simplify, renew, and enhance user experience. Our team, comprised of skilled developers, UX/UI designers, and strategists, is dedicated to delivering robust, scalable, and secure solutions.",
@@ -387,7 +387,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://uc.no/"
             }
         ],
@@ -409,7 +409,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.solea.no"
             }
         ],
@@ -422,7 +422,7 @@
         "companyName": "Simmer",
         "slug": "simmer",
         "altImageUrl": "",
-        "siteUrl": "https://www.simmer.no/en",
+        "siteUrl": "https://www.simmer.no",
         "content": "Scandinavian branding agency. Branding, design and digital, simmered to perfection.",
         "category": "Byrå",
         "categorySlug": "agency",
@@ -431,8 +431,8 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
-                "value": "https://www.simmer.no/en"
+                "label": "Nettsted",
+                "value": "https://www.simmer.no"
             }
         ],
         "ingress": "Through brand design, digital solutions and marketing, we create unique experiences, challenge the ordinary and elevate good to outstanding.",
@@ -453,7 +453,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://mhb.no"
             }
         ],
@@ -475,7 +475,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.linkutvikling.no"
             }
         ],
@@ -497,7 +497,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://nordlo.com/no/tjenester"
             }
         ],
@@ -519,7 +519,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://funbit.no"
             }
         ],
@@ -541,7 +541,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.apphuset.no"
             }
         ],
@@ -563,7 +563,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://oktett.no"
             }
         ],
@@ -585,7 +585,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.skavlmedia.no"
             }
         ],
@@ -607,7 +607,7 @@
         "seoKeywords": [],
         "details": [
             {
-                "label": "Website",
+                "label": "Nettsted",
                 "value": "https://www.codelab.no"
             }
         ],

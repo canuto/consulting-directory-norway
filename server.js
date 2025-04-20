@@ -2,9 +2,9 @@
 * Codehooks (c) example
 * A directory web site with dynamic content
 */
-import {app, Datastore, filestore} from 'codehooks-js'
+import { app, Datastore, filestore } from 'codehooks-js'
 import handlebars from 'handlebars';
-import {URL} from 'url';
+import { URL } from 'url';
 import fetch from 'node-fetch';
 import layouts from 'handlebars-layouts';
 import about from './web/templates/about.hbs';
@@ -13,12 +13,12 @@ import account from './web/templates/account.hbs';
 import index from './web/templates/index.hbs';
 import all from './web/templates/all.hbs';
 import category from './web/templates/category.hbs';
-import listing from './web/templates/listing.hbs';  
+import listing from './web/templates/listing.hbs';
 import layout from './web/templates/layout.hbs';
-import { 
-    loadDirectoriesCached, 
-    loadTopFeaturesCached, 
-    loadAllCategoriesCached, 
+import {
+    loadDirectoriesCached,
+    loadTopFeaturesCached,
+    loadAllCategoriesCached,
     loadCategoryFeaturesCached,
     loadListingById,
     writeSitemapToResponse,
@@ -61,11 +61,11 @@ let cacheBreaker = process.env.CACHE_BREAKER || '0';
 
 // crudlify listings collection
 const listingJSONSchema = {
-    title: {type: 'string', required: true},
-    siteUrl: {type: 'string', required: true},
-    screenshot: {type: 'string', required: false}
+    title: { type: 'string', required: true },
+    siteUrl: { type: 'string', required: true },
+    screenshot: { type: 'string', required: false }
 }
-app.crudlify({'listings': null}, {prefix: '/api'});
+app.crudlify({ 'listings': null }, { prefix: '/api' });
 
 
 // render the index page
@@ -73,7 +73,7 @@ app.get('/', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const topFeatures = await loadTopFeaturesCached();
     //setCacheHeaders(res);
-    res.send(await renderPage('index', {directories, topFeatures, title: settings.title, ingress: settings.ingress, cacheBreaker}));
+    res.send(await renderPage('index', { directories, topFeatures, title: settings.title, ingress: settings.ingress, cacheBreaker }));
 });
 
 // Generate sitemap.xml
@@ -86,7 +86,7 @@ app.post('/screenshot', async (req, res) => {
     const db = await Datastore.open();
     const siteUrl = req.body.siteUrl;
     console.log('worker to create screenshot of a url', siteUrl);
-    try {        
+    try {
         // use fetch to get the screenshot from a url
         const response = await fetch(`https://sea-lion-app-5qcgn.ondigitalocean.app/screenshot?url=${siteUrl}`, {
             headers: {
@@ -102,7 +102,7 @@ app.post('/screenshot', async (req, res) => {
             const result = await filestore.saveFile(`/screenshots/${siteUrl}`, buf);
             console.log('screenshot saved', result);
             //await db.updateOne('listings', {_id: listing._id}, {$set: {screenshotWorking: false, screenshot: result.id }});
-            res.end();    
+            res.end();
         }
     } catch (error) {
         console.error('error', error);
@@ -115,22 +115,22 @@ app.get('/screenshot', async (req, res) => {
     const url = req.query.url;
     const parsedUrl = new URL(url);
     const pathname = parsedUrl.pathname === '/' ? '' : parsedUrl.pathname;
-    const filename = `${parsedUrl.hostname}${pathname.replace(/\//g, '_')}.png`;
+    const filename = `${parsedUrl.hostname.replace(/\./g, '_')}${pathname.replace(/\//g, '_')}.png`;
     console.log('serve a screenshot of a url', url, filename);
     try {
         setCacheHeaders(res);
-        const filestream = await filestore.getReadStream(`/screenshots/${filename}`);        
+        const filestream = await filestore.getReadStream(`/screenshots/${filename}`);
         res.set('content-type', 'image/png');
         // stream content back to client    
         filestream
-        .on('data', (buf) => {
-          res.write(buf, 'buffer')
-        })    
-        .on('end', () => {
-          res.end()
-        })
-        
-      } catch (error) {
+            .on('data', (buf) => {
+                res.write(buf, 'buffer')
+            })
+            .on('end', () => {
+                res.end()
+            })
+
+    } catch (error) {
         console.error(error)
         res.set('content-type', 'image/svg+xml');
         // Create an SVG with "Missing screenshot" text
@@ -149,60 +149,61 @@ app.get('/screenshot', async (req, res) => {
                 </text>
             </svg>
         `);
-        
+
         res.write(missingImageBuffer, 'buffer');
         res.end();
-      }
+    }
 });
 
 // load contact
 app.get('/contact', async (req, res) => {
     console.log('contact');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('contact', {directories, title: settings.title, cacheBreaker}));
+    res.send(await renderPage('contact', { directories, title: settings.title, cacheBreaker }));
 });
 
 // load about
 app.get('/about', async (req, res) => {
     console.log('about');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('about', {directories, title: settings.title, cacheBreaker}));
+    res.send(await renderPage('about', { directories, title: settings.title, cacheBreaker }));
 });
 
 // load all categories
 app.get('/listing/all', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const allCategories = await loadAllCategoriesCached();
-    res.send(await renderPage('all', {directories, allCategories, title: settings.title, cacheBreaker}));
+    res.send(await renderPage('all', { directories, allCategories, title: settings.title, cacheBreaker }));
 });
 
 // load category by slug
 app.get('/listing/:slug', async (req, res) => {
-    const {slug} = req.params;
+    const { slug } = req.params;
     const directories = await loadDirectoriesCached();
-    const categoryFeatures = await loadCategoryFeaturesCached(slug);    
-    res.send(await renderPage('category', {directories, categoryFeatures, category: slug, title: settings.title, cacheBreaker}));
+    const category = directories.find(d => d.categorySlug === slug) || { name: '', categorySlug: slug };
+    const categoryFeatures = await loadCategoryFeaturesCached(slug);
+    res.send(await renderPage('category', { directories, categoryFeatures, category: category.name, title: settings.title, cacheBreaker }));
 });
 
 // load listing by slug and id
 app.get('/listing/:categorySlug/:slug', async (req, res) => {
-    const {categorySlug, slug} = req.params;
+    const { categorySlug, slug } = req.params;
     try {
         const directories = await loadDirectoriesCached();
         console.log('loadListingByIdCached', slug, directories.length);
         const listing = await loadListingById(slug);
-        res.send(await renderPage('listing', {listing, directories, keywords: listing.seoKeywords, title: settings.title, cacheBreaker}));
+        res.send(await renderPage('listing', { listing, directories, keywords: listing.seoKeywords, title: settings.title, cacheBreaker }));
     } catch (error) {
         console.error(`Error loading listing ${slug}:`, error.message);
-        res.status(404).send('Listing not found'+encodeURIComponent(slug));
+        res.status(404).send('Listing not found' + encodeURIComponent(slug));
     }
 });
 
 // load account
 app.get('/account', async (req, res) => {
-    console.log('account');    
+    console.log('account');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('account', {directories, title: settings.title, cacheBreaker}));
+    res.send(await renderPage('account', { directories, title: settings.title, cacheBreaker }));
 });
 
 
@@ -215,11 +216,11 @@ app.auth('/*', (req, res, next) => {
         console.log('auth NOT OK', req.originalUrl);
         res.status(401).end('Unauthorized');
     }
-    
+
 });
 
 // load static files (client cache)
-app.static({route: "/", directory: "/web", notFound: "/404.html"}, (_, res, next) => {
+app.static({ route: "/", directory: "/web", notFound: "/404.html" }, (_, res, next) => {
     setCacheHeaders(res);
     next();
 })

@@ -67,11 +67,11 @@ async function loadDirectories() {
         totalCount++;
     });
 
-    directories['all'] = { name: 'Alle selskaper', count: totalCount, categorySlug: 'all' };
+    directories['all'] = { name: 'Alle selskaper', count: totalCount, categorySlug: 'alle' };
 
     return Object.values(directories).sort((a, b) => {
-        if (a.categorySlug === 'all') return -1;
-        if (b.categorySlug === 'all') return 1;
+        if (a.categorySlug === 'alle') return -1;
+        if (b.categorySlug === 'alle') return 1;
         return a.name.localeCompare(b.name);
     });
 }
