@@ -499,7 +499,7 @@
         "companyName": "Nordlo",
         "slug": "nordlo",
         "altImageUrl": "",
-        "siteUrl": "https://nordlo.com/no/tjenester",
+        "siteUrl": "https://nordlo.com",
         "content": "Forbedre virksomheten med de rette IT-løsningene",
         "category": "Konsulentselskap",
         "categorySlug": "konsulentselskap",
@@ -509,7 +509,7 @@
         "details": [
             {
                 "label": "Nettsted",
-                "value": "https://nordlo.com/no/tjenester"
+                "value": "https://nordlo.com/no"
             }
         ],
         "ingress": "Vi er Nordlo - en nordisk IT- og digitaliseringspartner som bistår bedrifter og organisasjoner med å styrke sine IT-miljøer gjennom skalerbare it-tjenester, tilpasset både virksomhetens og de ansattes behov.",
@@ -601,8 +601,8 @@
             }
         ],
         "ingress": "I tiår har vi utviklet mediebedrifter. Fra lokal- og regionaviser via business-medier og magasiner til 'creators'. Vi har teknologien og verktøykassen som gjør at ambisiøse innholdsskapere kan lykkes.",
-        "topFeature": false,
-        "categoryFeature": false
+        "topFeature": true,
+        "categoryFeature": true
     },
     {
         "title": "Codelab",
