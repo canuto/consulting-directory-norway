@@ -14,107 +14,231 @@
       rel='stylesheet'
       type='text/css'
     />
-
+    <link
+      rel='icon'
+      type='image/png'
+      href='/favicon/favicon-96x96.png'
+      sizes='96x96'
+    />
+    <link rel='icon' type='image/svg+xml' href='/favicon/favicon.svg' />
+    <link rel='shortcut icon' href='/favicon/favicon.ico' />
+    <link
+      rel='apple-touch-icon'
+      sizes='180x180'
+      href='/favicon/apple-touch-icon.png'
+    />
+    <meta name='apple-mobile-web-app-title' content='Bergen Digital' />
+    <link rel='manifest' href='/favicon/site.webmanifest' />
   </head>
 
   <body>
-    <div class='min-h-screen flex flex-col'>
-      <!-- Navbar -->
-      <nav class='bg-base-100 shadow-lg'>
-        <div class='container mx-auto px-4'>
-          <div class='navbar'>
-            <div class='navbar-start'>
-              <a class='btn text-xl' href='/'>
-                <span class='lg:hidden'>/</span>
-                <span class='hidden lg:inline'>{{title}}</span>
-              </a>
-            </div>
-            <div class='navbar-center lg:flex'>
-              <div class='w-full lg:min-w-[500px] lg:flex'>
-                <div class='dropdown w-full'>
-                  <label class='input w-full'>
+    <div class='drawer'>
+      <input id='drawer-toggle' type='checkbox' class='drawer-toggle' />
+
+      <div class='drawer-content'>
+        <!-- Page content -->
+        <div class='min-h-screen flex flex-col'>
+          <!-- Navbar -->
+          <nav class='bg-base-100 shadow-lg sticky top-0 z-30'>
+            <div class='container mx-auto px-4'>
+              <div class='navbar gap-2'>
+                <!-- Start section with hamburger and title -->
+                <div class='navbar-start gap-2 min-w-[200px] lg:min-w-[250px]'>
+                  <label
+                    for='drawer-toggle'
+                    class='btn btn-square btn-ghost lg:hidden'
+                  >
                     <svg
-                      class='h-[1em] opacity-50'
                       xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
                       viewBox='0 0 24 24'
-                    ><g
-                        stroke-linejoin='round'
+                      class='inline-block w-6 h-6 stroke-current'
+                    >
+                      <path
                         stroke-linecap='round'
-                        stroke-width='2.5'
-                        fill='none'
-                        stroke='currentColor'
-                      ><circle cx='11' cy='11' r='8'></circle><path
-                          d='m21 21-4.3-4.3'
-                        ></path></g></svg>
-                    <input
-                      role='button'
-                      type='search'
-                      class='grow'
-                      placeholder='Finn tjenesteleverandører'
-                      id='search-input'
-                      oninput='handleSearch(this.value)'
-                    />
-                    <kbd class='kbd kbd-sm'>⌘</kbd>
-                    <kbd class='kbd kbd-sm'>K</kbd>
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M4 6h16M4 12h16M4 18h16'
+                      ></path>
+                    </svg>
                   </label>
-                  <ul
-                    id='search-results'
-                    class='menu dropdown-content bg-base-100 rounded-box z-1 p-2 shadow-sm hidden'
-                  ></ul>
+
+                  <a
+                    href='/'
+                    class='flex items-center gap-2 hover:opacity-75 transition-opacity'
+                  >
+                    <img
+                      src='/logo.svg'
+                      alt='Logo'
+                      class='w-6 h-6 lg:w-8 lg:h-8'
+                    />
+                    <span
+                      class='text-lg lg:text-xl font-semibold whitespace-nowrap'
+                    >{{title}}</span>
+                  </a>
+                </div>
+
+                <!-- Center section with search - hidden on mobile -->
+                <div class='navbar-center hidden lg:flex justify-center'>
+                  <div class='w-[600px] xl:w-[600px] lg:w-[450px]'>
+                    <label
+                      class='input input-bordered flex items-center gap-2 w-full'
+                    >
+                      <svg
+                        class='w-6 h-6 flex-none opacity-50'
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
+                      >
+                        <g
+                          stroke-linejoin='round'
+                          stroke-linecap='round'
+                          stroke-width='2'
+                          fill='none'
+                          stroke='currentColor'
+                        >
+                          <circle cx='11' cy='11' r='8'></circle>
+                          <path d='m21 21-4.3-4.3'></path>
+                        </g>
+                      </svg>
+                      <input
+                        type='search'
+                        class='grow min-w-[100px] text-base py-1'
+                        placeholder='Søk'
+                        id='search-input'
+                        oninput='handleSearch(this.value)'
+                      />
+                      <div class='flex items-center gap-1 flex-none'>
+                        <kbd class='kbd kbd-sm'>⌘</kbd>
+                        <kbd class='kbd kbd-sm'>K</kbd>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- End section with mobile search and about link -->
+                <div
+                  class='navbar-end gap-2 min-w-[100px] lg:min-w-[100px] flex justify-end'
+                >
+                  <!-- Mobile search -->
+                  <div class='flex-1 lg:hidden'>
+                    <div class='relative w-full'>
+                      <label
+                        class='input input-bordered flex items-center gap-2 w-full'
+                      >
+                        <svg
+                          class='w-6 h-6 flex-none opacity-50'
+                          xmlns='http://www.w3.org/2000/svg'
+                          viewBox='0 0 24 24'
+                        >
+                          <g
+                            stroke-linejoin='round'
+                            stroke-linecap='round'
+                            stroke-width='2'
+                            fill='none'
+                            stroke='currentColor'
+                          >
+                            <circle cx='11' cy='11' r='8'></circle>
+                            <path d='m21 21-4.3-4.3'></path>
+                          </g>
+                        </svg>
+                        <input
+                          type='search'
+                          class='grow min-w-[100px] text-base py-1'
+                          placeholder='Søk'
+                          id='search-input-mobile'
+                          oninput='handleSearch(this.value)'
+                        />
+                      </label>
+                    </div>
+                  </div>
+
+                  <a href='/about' class='btn btn-ghost hidden lg:flex'>Om</a>
                 </div>
               </div>
 
+              <!-- Search results container - outside navbar sections -->
+              <div class='relative'>
+                <ul
+                  id='search-results'
+                  class='menu dropdown-content bg-base-100 rounded-box z-[100] p-2 shadow-lg w-full mt-2 absolute hidden'
+                ></ul>
+              </div>
             </div>
-            <div class='navbar-end'>
-              <ul class='menu menu-horizontal px-1 hidden lg:flex'>
-                <li><a href='/about' class='font-medium'>Om</a></li>
-              </ul>
+          </nav>
+
+          <!-- Main Content -->
+          <main class='flex-grow p-2 lg:p-2'>
+            <div class='grid grid-cols-1 lg:grid-cols-12 gap-2'>
+              <!-- Left Sidebar - Only visible on desktop -->
+              <div class='hidden lg:block lg:col-span-3'>
+                <div class='menu w-full rounded-box bg-base-200'>
+                  <ul>
+                    {{#each directories}}
+                      <li>
+                        <a href='/listing/{{categorySlug}}'>
+                          {{name}}
+                          <div class='badge badge-sm'>{{count}}</div>
+                        </a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Main Content Area -->
+              <div class='lg:col-span-9'>
+                {{#block 'main'}}{{/block}}
+              </div>
             </div>
+          </main>
+
+          <!-- Footer -->
+          <footer class='footer footer-center p-10 text-base-content'>
+            <div>
+              <div class='mt-4'>
+                <p>Copyright © 2025 - All rights reserved</p>
+                <p class='mt-2'>
+                  Powered by a
+                  <a
+                    href='https://codehooks.io'
+                    class='link link-primary'
+                  >Codehooks.io</a>
+                  <a
+                    href='https://github.com/RestDB/directory-template/tree/main'
+                    class='link link-primary'
+                  >directory template</a>
+                </p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <!-- Drawer sidebar -->
+      <div class='drawer-side z-40'>
+        <label
+          for='drawer-toggle'
+          aria-label='close sidebar'
+          class='drawer-overlay'
+        ></label>
+        <div class='p-4 w-80 min-h-full bg-base-200'>
+          <!-- Drawer content -->
+          <div class='menu w-full'>
+            <h2 class='text-xl font-semibold mb-4'>Kategorier</h2>
+            <ul>
+              {{#each directories}}
+                <li>
+                  <a href='/listing/{{categorySlug}}'>
+                    {{name}}
+                    <div class='badge badge-sm'>{{count}}</div>
+                  </a>
+                </li>
+              {{/each}}
+              <li class='mt-4'><a href='/about'>Om</a></li>
+            </ul>
           </div>
         </div>
-      </nav>
-
-      <!-- Main Content -->
-      <main class='flex-grow p-2 lg:p-2'>
-        <div class='grid grid-cols-1 lg:grid-cols-12 gap-2'>
-          <!-- Left Sidebar -->
-          <div class='hidden lg:block lg:col-span-3'>
-            <div class='menu w-full rounded-box bg-base-200'>
-              <ul>
-                {{#each directories}}
-                  <li>
-                    <a href='/listing/{{categorySlug}}'>{{name}}
-                      <div class='badge badge-sm'>{{count}}</div></a>
-                  </li>
-                {{/each}}
-              </ul>
-            </div>
-          </div>
-
-          <!-- Main Content Area -->
-          <div class='lg:col-span-9'>
-            {{#block 'main'}}{{/block}}
-          </div>
-        </div>
-      </main>
-
-      <!-- Footer -->
-      <footer class='footer footer-center p-10 text-base-content'>
-        <div>
-          <div class='mt-4'>
-            <p>Copyright © 2025 - All rights reserved</p>
-            <p class='mt-2'>Powered by a
-              <a
-                href='https://codehooks.io'
-                class='link link-primary'
-              >Codehooks.io</a>
-              <a
-                href='https://github.com/RestDB/directory-template/tree/main'
-                class='link link-primary'
-              >directory template</a></p>
-          </div>
-        </div>
-      </footer>
+      </div>
     </div>
   </body>
 

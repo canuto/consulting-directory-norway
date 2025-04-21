@@ -67,7 +67,7 @@ async function loadDirectories() {
         totalCount++;
     });
 
-    directories['all'] = { name: 'Alle selskaper', count: totalCount, categorySlug: 'alle' };
+    directories['all'] = { name: 'Alle selskaper', count: totalCount, categorySlug: 'all' };
 
     return Object.values(directories).sort((a, b) => {
         if (a.categorySlug === 'alle') return -1;
