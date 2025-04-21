@@ -120,36 +120,29 @@
                   class='navbar-end gap-2 min-w-[100px] lg:min-w-[100px] flex justify-end'
                 >
                   <!-- Mobile search -->
-                  <div class='flex-1 lg:hidden'>
-                    <div class='relative w-full'>
-                      <label
-                        class='input input-bordered flex items-center gap-2 w-full'
+                  <div class='flex-none lg:hidden relative'>
+                    <!-- Search toggle button -->
+                    <button
+                      onclick='toggleMobileSearch()'
+                      class='btn btn-ghost btn-circle w-12 h-12 flex items-center justify-center'
+                    >
+                      <svg
+                        class='w-6 h-6'
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
                       >
-                        <svg
-                          class='w-6 h-6 flex-none opacity-50'
-                          xmlns='http://www.w3.org/2000/svg'
-                          viewBox='0 0 24 24'
+                        <g
+                          stroke-linejoin='round'
+                          stroke-linecap='round'
+                          stroke-width='2'
+                          fill='none'
+                          stroke='currentColor'
                         >
-                          <g
-                            stroke-linejoin='round'
-                            stroke-linecap='round'
-                            stroke-width='2'
-                            fill='none'
-                            stroke='currentColor'
-                          >
-                            <circle cx='11' cy='11' r='8'></circle>
-                            <path d='m21 21-4.3-4.3'></path>
-                          </g>
-                        </svg>
-                        <input
-                          type='search'
-                          class='grow min-w-[100px] text-base py-1'
-                          placeholder='Søk'
-                          id='search-input-mobile'
-                          oninput='handleSearch(this.value)'
-                        />
-                      </label>
-                    </div>
+                          <circle cx='11' cy='11' r='8'></circle>
+                          <path d='m21 21-4.3-4.3'></path>
+                        </g>
+                      </svg>
+                    </button>
                   </div>
 
                   <a href='/about' class='btn btn-ghost hidden lg:flex'>Om</a>
@@ -239,6 +232,42 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Mobile search container - moved outside drawer -->
+    <div
+      id='mobile-search-container'
+      class='fixed top-4 right-4 w-[calc(100vw-32px)] max-w-sm hidden transition-transform duration-200 ease-in-out z-50'
+      style='transform: translateX(calc(100% + 16px));'
+    >
+      <label
+        class='input input-bordered flex items-center gap-2 w-full bg-base-100 shadow-lg'
+        onclick='event.stopPropagation()'
+      >
+        <svg
+          class='w-6 h-6 flex-none opacity-50'
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 24 24'
+        >
+          <g
+            stroke-linejoin='round'
+            stroke-linecap='round'
+            stroke-width='2'
+            fill='none'
+            stroke='currentColor'
+          >
+            <circle cx='11' cy='11' r='8'></circle>
+            <path d='m21 21-4.3-4.3'></path>
+          </g>
+        </svg>
+        <input
+          type='search'
+          class='grow min-w-[100px] text-base py-1'
+          placeholder='Søk'
+          id='search-input-mobile'
+          oninput='handleSearch(this.value)'
+        />
+      </label>
     </div>
   </body>
 
