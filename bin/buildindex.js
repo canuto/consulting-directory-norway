@@ -6,20 +6,19 @@ const documents = JSON.parse(fs.readFileSync('build/database-listings.json', 'ut
 const showHitsData = {}
 
 const idx = lunr(function () {
-     
+
     this.ref('_id')
     this.field('title')
     this.field('content')
+    this.field('ingress')
     this.field('category')
-    this.field('siteUrl')    
+    this.field('siteUrl')
     this.field('companyName')
     this.field('details', {
         extractor: doc => doc.details?.map(detail => `${detail.label} ${detail.value}`).join(' ')
     })
 
-    
-
-    documents.forEach(function (doc) {        
+    documents.forEach(function (doc) {
         this.add(doc)
         showHitsData[doc._id] = {
             title: doc.title,
@@ -29,7 +28,9 @@ const idx = lunr(function () {
             category: doc.category,
             categorySlug: doc.categorySlug,
             slug: doc.slug,
-            companyName: doc.companyName
+            companyName: doc.companyName,
+            ingress: doc.ingress,
+            details: doc.details
         }
     }, this)
 })

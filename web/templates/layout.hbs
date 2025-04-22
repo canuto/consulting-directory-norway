@@ -79,7 +79,7 @@
                 </div>
 
                 <!-- Center section with search - hidden on mobile -->
-                <div class='navbar-center hidden lg:flex justify-center'>
+                <div class='navbar-center hidden lg:flex justify-center gap-2'>
                   <div class='w-[600px] xl:w-[600px] lg:w-[450px]'>
                     <label
                       class='input input-bordered flex items-center gap-2 w-full'
@@ -112,6 +112,38 @@
                         <kbd class='kbd kbd-sm'>K</kbd>
                       </div>
                     </label>
+                  </div>
+
+                  <!-- Categories Dropdown -->
+                  <div class='dropdown dropdown-end'>
+                    <label tabindex='0' class='btn btn-ghost gap-1'>
+                      Kategorier
+                      <svg
+                        class='w-5 h-5 stroke-current'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                      >
+                        <path
+                          stroke-linecap='round'
+                          stroke-linejoin='round'
+                          stroke-width='2.5'
+                          d='M6 9l6 6 6-6'
+                        />
+                      </svg>
+                    </label>
+                    <div
+                      tabindex='0'
+                      class='dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-52'
+                    >
+                      {{#each directories}}
+                        <li>
+                          <a href='/listing/{{categorySlug}}'>
+                            {{name}}
+                            <div class='badge badge-sm'>{{count}}</div>
+                          </a>
+                        </li>
+                      {{/each}}
+                    </div>
                   </div>
                 </div>
 
@@ -160,26 +192,10 @@
           </nav>
 
           <!-- Main Content -->
-          <main class='flex-grow p-2 lg:p-2'>
-            <div class='grid grid-cols-1 lg:grid-cols-12 gap-2'>
-              <!-- Left Sidebar - Only visible on desktop -->
-              <div class='hidden lg:block lg:col-span-3'>
-                <div class='menu w-full rounded-box bg-base-200'>
-                  <ul>
-                    {{#each directories}}
-                      <li>
-                        <a href='/listing/{{categorySlug}}'>
-                          {{name}}
-                          <div class='badge badge-sm'>{{count}}</div>
-                        </a>
-                      </li>
-                    {{/each}}
-                  </ul>
-                </div>
-              </div>
-
+          <main class='flex-grow p-2 lg:p-4'>
+            <div class='container mx-auto max-w-6xl'>
               <!-- Main Content Area -->
-              <div class='lg:col-span-9'>
+              <div>
                 {{#block 'main'}}{{/block}}
               </div>
             </div>
@@ -217,17 +233,16 @@
         <div class='p-4 w-80 min-h-full bg-base-200'>
           <!-- Drawer content -->
           <div class='menu w-full'>
-            <h2 class='text-xl font-semibold mb-4'>Kategorier</h2>
-            <ul>
+            <ul class='text-lg'>
               {{#each directories}}
                 <li>
-                  <a href='/listing/{{categorySlug}}'>
+                  <a href='/listing/{{categorySlug}}' class='py-3'>
                     {{name}}
                     <div class='badge badge-sm'>{{count}}</div>
                   </a>
                 </li>
               {{/each}}
-              <li class='mt-4'><a href='/about'>Om</a></li>
+              <li class='mt-4'><a href='/about' class='py-3'>Om</a></li>
             </ul>
           </div>
         </div>
