@@ -14,21 +14,17 @@
       rel='stylesheet'
       type='text/css'
     />
-    <link
-      rel='icon'
-      type='image/png'
-      href='/favicon/favicon-96x96.png'
-      sizes='96x96'
-    />
-    <link rel='icon' type='image/svg+xml' href='/favicon/favicon.svg' />
-    <link rel='shortcut icon' href='/favicon/favicon.ico' />
-    <link
-      rel='apple-touch-icon'
-      sizes='180x180'
-      href='/favicon/apple-touch-icon.png'
-    />
+    <link rel='icon' type='image/png' href='/favicon-96x96.png' sizes='96x96' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='shortcut icon' href='/favicon.ico' />
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
     <meta name='apple-mobile-web-app-title' content='Bergen Digital' />
-    <link rel='manifest' href='/favicon/site.webmanifest' />
+    {{!     <link rel='manifest' href='/site.webmanifest' /> }}
+    <script
+      src='https://cdn.usefathom.com/script.js'
+      data-site='HYIJLVBZ'
+      defer
+    ></script>
   </head>
 
   <body>
@@ -145,6 +141,8 @@
                       {{/each}}
                     </div>
                   </div>
+
+                  <a href='/about' class='btn btn-ghost'>Om</a>
                 </div>
 
                 <!-- End section with mobile search and about link -->
@@ -176,8 +174,6 @@
                       </svg>
                     </button>
                   </div>
-
-                  <a href='/about' class='btn btn-ghost hidden lg:flex'>Om</a>
                 </div>
               </div>
 

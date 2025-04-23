@@ -25,14 +25,14 @@
                         <h2 class="text-xl font-semibold mb-4">Mer informasjon</h2>
                         <dl class="grid gap-4">
                             {{#each listing.details}}
-                            <div class="grid grid-cols-2">
-                                <dt class="font-medium">{{label}}</dt>
-                                <dd>
+                            <div class="grid sm:grid-cols-2 grid-cols-1 bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all gap-1">
+                                <dt class="font-semibold text-base-content/80">{{label}}</dt>
+                                <dd class="text-base-content">
                                     {{#if (eq label "Nettsted")}}
-                                    <a href="{{value}}" class="link link-primary" target="_blank"
+                                    <a href="{{value}}" class="link font-medium break-words truncate hover:text-clip hover:whitespace-normal" target="_blank"
                                         rel="noopener noreferrer">{{value}}</a>
                                     {{else}}
-                                    {{value}}
+                                    <span class="font-medium break-words">{{value}}</span>
                                     {{/if}}
                                 </dd>
                             </div>

@@ -1,6 +1,6 @@
 {
-  "name": "simple_web",
-  "version": "1.0.0",
+  "name": "bergendigital",
+  "version": "1.0.1",
   "main": "server.js",
   "scripts": {
     "clean": "coho dropcollection --collection 'listings' && coho query _kvspacecache --delete",

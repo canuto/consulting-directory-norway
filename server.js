@@ -59,14 +59,7 @@ handlebars.registerPartial('layout', layout);
 // cache breaker variable
 let cacheBreaker = process.env.CACHE_BREAKER || '0';
 
-// crudlify listings collection
-const listingJSONSchema = {
-    title: { type: 'string', required: true },
-    siteUrl: { type: 'string', required: true },
-    screenshot: { type: 'string', required: false }
-}
 app.crudlify({ 'listings': null }, { prefix: '/api' });
-
 
 // render the index page
 app.get('/', async (req, res) => {
@@ -198,14 +191,6 @@ app.get('/listing/:categorySlug/:slug', async (req, res) => {
         res.status(404).send('Listing not found' + encodeURIComponent(slug));
     }
 });
-
-// load account
-app.get('/account', async (req, res) => {
-    console.log('account');
-    const directories = await loadDirectoriesCached();
-    res.send(await renderPage('account', { directories, title: settings.title, cacheBreaker }));
-});
-
 
 // Define the authentication middleware for open pages
 app.auth('/*', (req, res, next) => {
