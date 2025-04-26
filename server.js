@@ -66,7 +66,7 @@ app.get('/', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const topFeatures = await loadTopFeaturesCached();
     //setCacheHeaders(res);
-    res.send(await renderPage('index', { directories, topFeatures, title: settings.title, ingress: settings.ingress, cacheBreaker }));
+    res.send(await renderPage('index', { directories, topFeatures, title: settings.title, baseUrl: settings.baseUrl, ingress: settings.ingress, cacheBreaker }));
 });
 
 // Generate sitemap.xml
@@ -152,21 +152,21 @@ app.get('/screenshot', async (req, res) => {
 app.get('/contact', async (req, res) => {
     console.log('contact');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('contact', { directories, title: settings.title, cacheBreaker }));
+    res.send(await renderPage('contact', { directories, title: settings.title, baseUrl: settings.baseUrl, cacheBreaker }));
 });
 
 // load about
 app.get('/about', async (req, res) => {
     console.log('about');
     const directories = await loadDirectoriesCached();
-    res.send(await renderPage('about', { directories, title: settings.title, cacheBreaker }));
+    res.send(await renderPage('about', { directories, title: settings.title, baseUrl: settings.baseUrl, cacheBreaker }));
 });
 
 // load all categories
 app.get('/listing/all', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const allCategories = await loadAllCategoriesCached();
-    res.send(await renderPage('all', { directories, allCategories, title: settings.title, cacheBreaker }));
+    res.send(await renderPage('all', { directories, allCategories, title: settings.title, baseUrl: settings.baseUrl, cacheBreaker }));
 });
 
 // load category by slug
@@ -175,7 +175,7 @@ app.get('/listing/:slug', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const category = directories.find(d => d.categorySlug === slug) || { name: '', categorySlug: slug };
     const categoryFeatures = await loadCategoryFeaturesCached(slug);
-    res.send(await renderPage('category', { directories, categoryFeatures, category: category.name, title: settings.title, cacheBreaker }));
+    res.send(await renderPage('category', { directories, categoryFeatures, category: category.name, title: settings.title, baseUrl: settings.baseUrl, cacheBreaker }));
 });
 
 // load listing by slug and id
@@ -185,7 +185,7 @@ app.get('/listing/:categorySlug/:slug', async (req, res) => {
         const directories = await loadDirectoriesCached();
         console.log('loadListingByIdCached', slug, directories.length);
         const listing = await loadListingById(slug);
-        res.send(await renderPage('listing', { listing, directories, keywords: listing.seoKeywords, title: settings.title, cacheBreaker }));
+        res.send(await renderPage('listing', { listing, directories, keywords: listing.seoKeywords, title: settings.title, baseUrl: settings.baseUrl, cacheBreaker }));
     } catch (error) {
         console.error(`Error loading listing ${slug}:`, error.message);
         res.status(404).send('Listing not found' + encodeURIComponent(slug));
