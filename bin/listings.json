@@ -55,6 +55,37 @@
         "categoryFeature": true
     },
     {
+        "title": "Figment",
+        "companyName": "Figment AS",
+        "slug": "figment",
+        "altImageUrl": "",
+        "siteUrl": "https://figment.no",
+        "content": "Innsikt og teknologi for å skape verdi",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-04-26",
+        "seoKeywords": [
+            "Digitalisering",
+            "IT strategi",
+            "virksomhetsarkitektur",
+            "prosessledelse",
+            "teknologiledelse",
+            "lavkode",
+            "automatsjon",
+            "prosjektledelse"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://figment.no"
+            }
+        ],
+        "ingress": "Vi sikrer at prosjektene understøtter dine mål, og vi digitaliserer prosesser som bruker dataene dine riktig, slik at du får mest verdi for innsatsen.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
         "title": "Ilder",
         "companyName": "Ilder",
         "slug": "ilder",
