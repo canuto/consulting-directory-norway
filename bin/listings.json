@@ -231,6 +231,28 @@
         "categoryFeature": false
     },
     {
+        "title": "Cap Gemini",
+        "companyName": "Cap Gemini",
+        "slug": "cap-gemini",
+        "altImageUrl": "",
+        "siteUrl": "https://www.capgemini.com",
+        "content": "Vi utvikler bærekraftige løsninger med Gen AI",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-04-16",
+        "seoKeywords": [],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://www.capgemini.com"
+            }
+        ],
+        "ingress": "Cap Gemini er et verdensledende konsulentselskap innen IT og digital kommunikasjon.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
         "title": "Kraftlauget",
         "companyName": "Kraftlauget",
         "slug": "kraftlauget",
