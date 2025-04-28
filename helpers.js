@@ -121,7 +121,7 @@ async function writeSitemapToResponse(res, host) {
     // Add all directory entries
     await listings.forEach((listing) => {
         res.write(`  <url>
-    <loc>${sitename}/${listing.categorySlug}/${listing.slug}/${listing._id}</loc>
+    <loc>${sitename}/listing/${listing.categorySlug}/${listing.slug}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>\n`);

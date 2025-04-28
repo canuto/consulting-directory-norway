@@ -66,7 +66,8 @@ app.get('/', async (req, res) => {
     const directories = await loadDirectoriesCached();
     const topFeatures = await loadTopFeaturesCached();
     //setCacheHeaders(res);
-    res.send(await renderPage('index', { directories, topFeatures, title: settings.title, baseUrl: settings.baseUrl, ingress: settings.ingress, cacheBreaker }));
+
+    res.send(await renderPage('index', { directories, keywords: settings.keywords, topFeatures, title: settings.title, baseUrl: settings.baseUrl, ingress: settings.ingress, cacheBreaker }));
 });
 
 // Generate sitemap.xml
