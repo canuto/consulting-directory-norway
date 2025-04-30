@@ -2,15 +2,18 @@ const settings = {
 	"title": "DigiHub Bergen",
 	"baseUrl": "https://bergen.digihub.no",
 	"ingress": `		
-		DigiHub Bergen er en katalog med leverandører av digitale tjenester i Bergen. Vi har samlet små og store selskaper i Bergen som kan bistå med implementering av digitale løsninger (systemutvikling, apper, nettsider) og rådgivning. 
+		DigiHub Bergen er en katalog med oversikt over webbyråer og IT-konsulenter i Bergen. Vi har samlet små og store selskaper i Bergen som kan bistå med utvikling av digitale løsninger (systemutvikling, apper, nettsider) og rådgivning. 
 	`,
 	"keywords": [
 		"Bergen",
 		"DigiHub",
+		"Webbyrå",
+		"IT-konsulenter",
+		"Konsulentselskap",
+		"Directory",
+		"Oversikt",
 		"Katalog",
 		"Leverandører",
-		"Konsulentselskap",
-		"Webbyrå",
 		"Systemutvikling",
 		"Apper",
 		"Nettsider",
@@ -21,8 +24,13 @@ const settings = {
 		"Prosessledelse",
 		"Teknologiledelse",
 		"Lavkode",
-		"Automatsjon",
+		"Automasjon",
 		"Prosjektledelse",
+		"UX",
+		"Frontend",
+		"Backend",
+		"Fullstack",
+		"Devops"
 	]
 }
 export default settings;

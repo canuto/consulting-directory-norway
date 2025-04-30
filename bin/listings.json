@@ -504,6 +504,70 @@
         "categoryFeature": false
     },
     {
+        "title": "These Ways",
+        "companyName": "These Ways",
+        "slug": "theseways",
+        "altImageUrl": "",
+        "siteUrl": "https://theseways.no",
+        "content": "Vi er et designstudio som bygger digitale tjenester basert på bærekraftig strategi, innsikt og brukervennlig design.",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-04-28",
+        "seoKeywords": [
+            "UX",
+            "UI",
+            "Design",
+            "Konsulentselskap",
+            "tjenestedesign"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://theseways.no"
+            }
+        ],
+        "ingress": "Sammen finner vi nye veier, veiledet av innsikt, informert av kunnskap",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Apparat",
+        "companyName": "Apparat",
+        "slug": "apparat",
+        "altImageUrl": "",
+        "siteUrl": "https://apparat.no",
+        "content": "Det kreative tech- og mediehuset i Bergen",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-04-28",
+        "seoKeywords": [
+            "Utvikling",
+            "Design",
+            "Konsulentselskap",
+            "App",
+            "Web",
+            "Digital",
+            "Prosjektledelse",
+            "Film",
+            "Animasjon",
+            "Vignetter",
+            "Reklamefilm",
+            "Musikkvideo",
+            "Forklaringsfilmer"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://apparat.no"
+            }
+        ],
+        "ingress": "Hos Apparat har vi delt vårt selskap i to spesialiserte avdelinger: IT-konsulenter og Film og animasjon. Hver avdeling bringer sin unike ekspertise og energi til bordet, og vi er stolte av å kunne levere tjenester som spenner over disse to disiplinene.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
         "title": "Mediehuset Bergen",
         "companyName": "Mediehuset Bergen AS",
         "slug": "mhb",

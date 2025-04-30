@@ -1,3 +1,13 @@
+# About this fork
+
+This is a fork of the [directory-template](https://github.com/RestDB/directory-template) project.
+
+The original project is a SEO optimized directory service using Codehooks.io as a backend.
+
+This fork is created to be a directory for web agencies and IT-consultants in Bergen, Norway.
+
+You can browse the live directory at [bergen.digihub.no](https://bergen.digihub.no).
+
 # directory-template
 
 Create SEO optimized directory services using Codehooks.io as a backend
