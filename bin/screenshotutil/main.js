@@ -47,6 +47,27 @@ const screenshotsDir = process.argv[3] || path.join(__dirname, 'screenshots');
             throw new Error(`Failed to load page: ${response?.status()} ${response?.statusText()}`);
         }
 
+        // Wait a bit for dynamic content and try to detect cookie banner containers
+        await page.waitForTimeout(2000);
+
+        // Wait for common cookie banner containers
+        const cookieContainerSelectors = [
+            '#CybotCookiebotDialog',
+            '#onetrust-banner-sdk',
+            '.cookie-banner',
+            '[aria-label*="cookie" i]',
+            '#cookie-consent',
+            '.cookie-notice'
+        ];
+
+        for (const containerSelector of cookieContainerSelectors) {
+            try {
+                await page.waitForSelector(containerSelector, { timeout: 3000 }).catch(() => { });
+            } catch (error) {
+                // Continue if selector not found
+            }
+        }
+
         // Attempt to dismiss cookie banners (with Playwright auto-waiting)
         const selectors = [
             'button >> text=agree',
@@ -55,6 +76,7 @@ const screenshotsDir = process.argv[3] || path.join(__dirname, 'screenshots');
             'button >> text=godkjenn',
             'button >> text=godta',
             'button >> text=tillat',
+            'button >> text=Allow',
             'button >> text=avvis',
             'button >> text=i agree',
             'button >> text=i accept',
