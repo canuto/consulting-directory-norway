@@ -33,6 +33,41 @@
         "categoryFeature": true
     },
     {
+        "title": "Avo",
+        "companyName": "Avo",
+        "slug": "avo",
+        "altImageUrl": "",
+        "siteUrl": "https://www.avoconsulting.no",
+        "content": "Ved hjelp av lavkode, automatisering, prosessforbedring, brukerorientert design og mer, skaper vi positiv endring for våre kunder.",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-09-09",
+        "seoKeywords": [
+            "Lavkode",
+            "Low-code",
+            "Automatisering",
+            "Prosessforbedring",
+            "Brukerorientert design",
+            "Digital transformasjon",
+            "AI",
+            "RPA",
+            "Oslo",
+            "Bergen",
+            "Konsulentselskap",
+            "Digitale produkter"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://www.avoconsulting.no"
+            }
+        ],
+        "ingress": "Vi skaper gode løsninger for de krevende problemene med fokus på innovasjon, effektivitet og utvikling av mennesker og organisasjoner.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
         "title": "Cure",
         "companyName": "Cure",
         "slug": "cure",
@@ -126,6 +161,42 @@
             }
         ],
         "ingress": "Ilder har eit team med brei kompetanse innan design, brukaroppleving, utvikling, DevOps, IT-tryggleik og prosjektleiing.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Kantega",
+        "companyName": "Kantega",
+        "slug": "kantega",
+        "altImageUrl": "",
+        "siteUrl": "https://www.kantega.no",
+        "content": "Vi er et konsulentselskap som har som mål å være en strategisk partner for kundene våre. Kantega hjelper deg å utvikle løsninger som betyr mye for folk og som gjør hverdagen enklere.",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-09-09",
+        "seoKeywords": [
+            "Systemutvikling",
+            "Design",
+            "Brukeropplevelse",
+            "Datadrevet innovasjon",
+            "Rådgivning",
+            "eID",
+            "Elektronisk autentisering",
+            "KI",
+            "Sikkerhet",
+            "Integrasjon",
+            "Digital transformasjon",
+            "Teknologi",
+            "Konsulentselskap"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://www.kantega.no"
+            }
+        ],
+        "ingress": "Et ledende teknologiselskap med fagfolk som utvikler løsninger i godt samspill mellom teknologi og mennesker. Kantega er en pioner innen eID og elektronisk autentisering i Norden.",
         "topFeature": false,
         "categoryFeature": false
     },
@@ -225,6 +296,42 @@
             }
         ],
         "ingress": "Hos Apility er vi eksperter på å levere teknologiske løsninger som gjør en forskjell. Vårt team av utviklere, designere og rådgivere jobber tett sammen for å hjelpe din bedrift å vokse og tilpasse seg en digital verden. Vi fokuserer på å forstå dine behov og levere resultater som skaper verdi.",
+        "topFeature": false,
+        "categoryFeature": false
+    },
+    {
+        "title": "Noria",
+        "companyName": "Noria",
+        "slug": "noria",
+        "altImageUrl": "",
+        "siteUrl": "https://www.noria.no",
+        "content": "We are a technology partner delivering high-impact digital transformation through our banking and insurance solutions, digital project team and highly experienced consultants.",
+        "category": "Konsulentselskap",
+        "categorySlug": "konsulentselskap",
+        "directory": "consulting",
+        "publishDate": "2025-09-09",
+        "seoKeywords": [
+            "Digital transformasjon",
+            "Banking solutions",
+            "Insurance solutions",
+            "Financial services",
+            "Software Engineering",
+            "Cloud",
+            "DevOps",
+            "Quality Assurance",
+            "Digital Strategy",
+            "Oslo",
+            "Bergen",
+            "Sandefjord",
+            "IT-konsulting"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://www.noria.no"
+            }
+        ],
+        "ingress": "We specialise in digital and IT for financial services with offices in Oslo, Bergen, and Sandefjord.",
         "topFeature": false,
         "categoryFeature": false
     },
