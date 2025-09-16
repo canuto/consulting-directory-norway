@@ -1236,5 +1236,42 @@
         "ingress": "Itera er et av Nordens mest erfarne teknologiselskaper, grunnlagt i 1993. Med kontorer i åtte land, inkludert Bergen, leverer vi innovative løsninger og tjenester til kunder i over 20 land. Vi drives av å bruke vår kompetanse til å løse reelle problemer for reelle mennesker.",
         "topFeature": false,
         "categoryFeature": false
+    },
+    {
+        "title": "Frei",
+        "companyName": "Frei",
+        "slug": "frei",
+        "altImageUrl": "",
+        "siteUrl": "https://www.frei.as/",
+        "content": "Moderne teknologi og effektive prosesser skaper gode kundeopplevelser, øker salget og frigjør tid. Vi gir organisasjonen din superkrefter - raskt og enkelt, gjennom HubSpot.",
+        "category": "Byrå",
+        "categorySlug": "agency",
+        "directory": "consulting",
+        "publishDate": "2025-09-16",
+        "seoKeywords": [
+            "HubSpot",
+            "CRM",
+            "Marketing automation",
+            "Salg",
+            "Markedsføring",
+            "Digital transformasjon",
+            "Integrasjoner",
+            "Inbound marketing",
+            "RevOps",
+            "Service",
+            "Teknologi",
+            "Rådgivning",
+            "Prosessforbedring",
+            "Leadsgenerering"
+        ],
+        "details": [
+            {
+                "label": "Nettsted",
+                "value": "https://www.frei.as/"
+            }
+        ],
+        "ingress": "Vi har jobbet i skjæringspunktet mellom strategi, teknologi og organisasjon i 20 år. Vi elsker å løse problemer ved smart bruk av teknologi. Derfor har vi spesialisert oss på HubSpot, den mest anerkjente plattformen for B2B-salg og markedsføring.",
+        "topFeature": false,
+        "categoryFeature": false
     }
 ]
